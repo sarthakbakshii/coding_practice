@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 300px;
+            /* border: 1px solid; */
+            margin: auto;
+            margin-top: 100px;
+            display: flex;
+            gap: 20px;
+        }
+
+        #error {
+            margin: 0 auto;
+            /* height: 50px; */
+            /* border: 1px solid; */
+            text-align: center;
+            margin: 0 auto;
+            width: 300px;
+        }
+
+        #dob {
+            width: 200px;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <select name="" id="dob">
+            <option value="" selected disabled hidden> Choose Age</option>
+            <option value="1997"> 1997 </option>
+            <option value="1998"> 1998 </option>
+            <option value="1999"> 1999 </option>
+            <option value="2000"> 2000 </option>
+            <option value="2001"> 2001 </option>
+            <option value="2002"> 2002 </option>
+            <option value="2003"> 2003 </option>
+            <option value="2004"> 2004 </option>
+            <option value="2005"> 2005 </option>
+        </select>
+        <input type="button" onfocus="hideError()" onclick="age()" value="click me">
+    </div>
+    <div id="error"></div>
+
+    <script>
+
+    function hideError() {
+        error.innerHTML = "";
+        error.style.marginTop = '20px';
+        error.style.color = 'red';
+
+    }
+
+
+    function age() {
+        const dob = document.getElementById("dob").value;
+        
+        
+        if(dob == ""){
+            const err = document.getElementById('error');
+            err.innerHTML = "Age is not defined";
+            err.style.marginTop = '20px';
+            err.style.color = 'red';
+        }
+        else{
+            const cYear = new Date().getFullYear()
+            let page = cYear - dob;
+            let message = "";
+            if (page >= 18) { message = "Able to get married"; }
+            else if (page < 18) { message = "underage" }
+
+            alert(`Age is ${page}. So user is ${message} `)
+        }
+        
+    }
+
+      
+    </script>
+</body>
+
+</html>

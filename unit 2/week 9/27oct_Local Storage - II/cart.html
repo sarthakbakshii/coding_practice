@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product page</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <style>
+        * {
+            margin: 0;
+        }
+
+        header {
+            border: 1px solid;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+            padding-right: 50px;
+            justify-content: space-between;
+            color: #fff;
+            font-size: 30px;
+            font-family: sans-serif;
+            background-color: rgb(155, 147, 120);
+        }
+
+        header .right {
+            /* border: 1px solid; */
+            cursor: pointer;
+            transition: .4s;
+
+
+        }
+
+        header .right:hover i {
+            font-size: 35px;
+            transition: .2s;
+        }
+
+        header .right img {
+            height: 40px;
+        }
+        .totalBox{
+             height: 40px;
+             width: 30%;
+             margin: auto;
+             display: flex;
+             align-items: center;
+             justify-content: space-around;
+             border-bottom: 1px solid;
+        }
+        .promoCodeBox{
+            width: 30%;
+             margin: 10px auto;
+             display: flex;
+             align-items: center;
+             /* border-bottom: 1px solid; */
+        }
+       #promo {
+            border: 2px solid #dadada;
+            border-radius: 7px;
+            height: 25px;
+            width: 100%;
+            padding-left: 10px;
+        }
+
+        #promo:focus { 
+            outline: none;
+            border-color: #9ecaed;
+            box-shadow: 0 0 10px #9ecaed;
+        }
+        
+        .displayCard {
+            /* border: 1px solid; */
+            width: 90%;
+            margin: 50px auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+
+        }
+
+        .card {
+            /* border: 1px solid; */
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: flex;
+            height: 130px;
+            padding: 10PX;
+        }
+
+        .card .cardTop {
+            /* border: 1px solid; */
+            width: 60%;
+            display: flex;
+        }
+
+        .card .cardBottom {
+            /* border: 1px solid; */
+            width: 50%;
+            padding-left: 10px;
+        }
+
+        .card h1 {
+            font-size: 25px;
+            /* border: 1px solid; */
+
+        }
+
+        .card .iconBox {
+            border: 1px solid;
+            font-family: sans-serif;
+            padding: 5px;
+            width: 120px;
+            margin-top: 50px;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            box-sizing: border-box;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .card .iconBox:hover {
+            background-color: rgb(155, 147, 120);
+            color: white;
+        }
+
+        .card .img {
+            max-height: 100%;
+            max-width: 100%;
+            margin: auto;
+            /* height: */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="left">Cart</div>
+        <!-- <div class="right">
+            <i class="fas fa-cart-plus" id="goToCart"></i>
+        </div> -->
+
+    </header>
+    <div class="totalBox" id="totalBox">
+        <h1>TOTAL : </h1><h1 id="totalShow"></h1>
+        <h3> No of items : </h3><h3 id="totalNoShow"></h3>
+        
+    </div>
+    <div class="promoCodeBox">
+            <input type="text" name="" id="promo" placeholder="Apply promo code and get discount 30%">
+    </div>
+    <div class="promoCodeBox">
+        <h1 class="bill"></h1>
+    </div>
+    
+
+
+    <div class="displayCard" id="displayCard"></div>
+</body>
+
+</html>
+<script>
+    // --------------------------------------------- storage
+        var itemListArr = JSON.parse(localStorage.getItem("ecom_ls_test_project_1_itemList")) || [];
+        var cartItemArr = JSON.parse(localStorage.getItem("ecom_ls_test_project_1_cartItem")) || [];
+    // --------------------------------------------- main function
+    window.addEventListener("load", () => {
+        displayCard();
+        displayTotal();
+    });
+
+    function emplyDisplaycart(){
+        document.getElementById("displayCard").innerHTML = "";
+    }
+
+    // --- dispaly cart
+        function displayCard(){
+            emplyDisplaycart();
+
+            var displayCard = document.getElementById("displayCard");
+
+            cartItemArr.map( (item,index) =>{
+                var card = document.createElement("div");
+                card.id = "card";
+                card.classList = "card";
+                card.innerHTML = `<div class="cardTop">
+                                     <img src="${item.pic}" class="img">
+                                  </div>
+                                  `;
+                displayCard.append(card);
+
+                var cardBottom = document.createElement("div");
+                cardBottom.classList = "cardBottom";
+                cardBottom.id = "cardBottom";
+                cardBottom.innerHTML = `<h1> ${item.name} </h1>
+                                       <p> Price : ${item.price} </p>`;
+                card.append(cardBottom);
+
+                var iconBox = document.createElement("div");
+                iconBox.classList = "iconBox";
+                iconBox.id = "iconBox";
+                iconBox.innerHTML = " remove";
+                iconBox.addEventListener("click", () => {
+                    deleteCart(index)
+                })
+                cardBottom.append(iconBox)
+            });
+            displayTotal()
+        }
+
+        // ---- delete cart
+        function deleteCart(index){
+            console.log(index);
+            cartItemArr.splice(index,1);
+             localStorage.setItem("ecom_ls_test_project_1_cartItem", JSON.stringify(cartItemArr))
+             displayCard();
+
+        }
+
+    // -- total
+    function displayTotal(){
+        var totalH1 = document.querySelector(".totalBox #totalShow");
+        var totalH3 = document.querySelector(".totalBox #totalNoShow");
+
+        var totalBill = cartItemArr.reduce( (a,c) =>  {
+            return (a + Number(c.price));
+        },0)
+        // console.log(totalBill)
+        totalCartItems = 0;
+        cartItemArr.map( a => totalCartItems++)
+        // console.log(totalCartItems)
+
+
+        totalH1.innerHTML = totalBill
+        totalH3.innerHTML = totalCartItems
+        
+    }
+    // --- promo
+     var promo = document.querySelector("#promo")
+        promo.addEventListener("keyup", () => {
+            let promocode = promo.value;
+            if (promocode == "promo") {
+                    var totalH1 = document.querySelector(".totalBox #totalShow");
+                    var billShow = document.querySelector(".bill");
+                    var total = Number(totalH1.textContent);
+                    var bill = total - total * 30 / 100;
+                    console.log(bill) ;
+
+                    billShow.textContent = "Bill: " +bill;
+            }
+        })
+</script>

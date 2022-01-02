@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            /* font-family: 'Times New Roman', Times, serif; */
+        }
+        header{
+            /* border: 1px solid; */
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+            color: #fff;
+            font-size: 30px;
+            font-family: sans-serif;
+            margin-bottom: 30px;
+            background-color: rgb(155, 147, 120);
+        }
+        .con{
+            /* border: 1px solid; */
+            width: 80%;
+            margin: 20px auto;
+            display: flex;
+            gap: 20px;
+        }
+        hr{
+            margin-top: 40px;
+        }
+        .con .field{
+            /* border: 1px solid; */
+            height: 50px;
+           
+            width: 50%;
+        }
+        input,select{
+            width: 97%;
+            margin-top: 7px;
+            height: 15px;
+        }
+        select{
+            height: 21px;
+        }
+        .submit{
+            height: 30px;
+            margin-top: 18px;
+        }
+        .displayCard{
+            /* border: 1px solid; */
+            width: 90%;
+            margin:50px auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+
+        }
+        .card{
+             /* border: 1px solid; */
+             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+             display: flex;
+             height: 130px;
+             padding: 10PX;
+        }
+        .card .cardTop{
+            /* border: 1px solid; */
+            width: 60%;
+            display: flex;
+        }
+        .card .cardBottom{
+            /* border: 1px solid; */
+            width: 50%;
+            padding-left: 10px;
+        }
+        .card h1{
+            font-size: 25px;
+        }
+        .card .img{
+            max-height: 100%;
+            max-width: 100%;
+            margin: auto;
+            /* height: */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        E-commerce Admin Panel
+    </header>
+    <div class="con">
+        <div class="field">
+            <label for="name">Item Name</label>
+            <input type="text" name="" id="name" placeholder="enter product name">
+        </div>
+        <div class="field">
+            <label for="price">Item price</label>
+            <input type="text" name="" id="price" placeholder="enter product price">
+        </div>
+        <div class="field">
+            <label for="catagory">Catagory</label>
+            <select name="" id="catagory">
+                <option value="" selected disabled hidden>Select the catagory</option>
+                <option value="shoe">Shoe</option>
+                <option value="tshirt">T Shirt</option>
+                <option value="mobile">Mobile</option>
+            </select>
+        </div>
+        
+        
+    </div>
+    <div class="con">
+        <div class="field">
+            <label for="pic">Item picture</label>
+            <input type="text" name="" id="pic" placeholder="enter product image">
+        </div>
+        <div class="field">
+            <input type="submit" id="submit" class="submit" value="Add item ">
+        </div>
+       
+    
+    
+    </div>
+    <hr>
+    <div class="displayCard" id="displayCard">
+        
+    </div>
+    
+</body>
+</html>
+<script>
+    
+    // --------------------------------------------- storage
+    var itemListArr = JSON.parse(localStorage.getItem("ecom_ls_test_project_1_itemList")) || [];
+    
+    // --------------------------------------------- main function
+
+    // ---- epmty fields
+
+        function emptyField() {
+            document.getElementById("name").value = "";
+            document.getElementById("price").value = "";
+            document.getElementById("catagory").value = "";
+            document.getElementById("pic").value = "";
+        }
+        function emptyDisplayCard(){
+            document.getElementById("displayCard").innerHTML = "";
+        }
+
+    // --------------------------------------------- dom rendering
+
+
+    // ---- on submit event
+
+    document.getElementById("submit").addEventListener("click", (e) =>{
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let catagory = document.getElementById("catagory").value;
+        let pic = document.getElementById("pic").value;
+
+        if(name == "" || price == "" || catagory == "" || pic == ""){
+            alert("Enter Valid Item");
+            emptyField();
+
+            //--- delete last entry
+            // itemListArr.pop()
+            // localStorage.setItem("ecom_ls_test_project_1_itemList", JSON.stringify(itemListArr));
+        }
+        else{
+            var itemListObject = { name, price, catagory, pic };
+            itemListArr.push(itemListObject);
+           
+            localStorage.setItem("ecom_ls_test_project_1_itemList",JSON.stringify(itemListArr));
+             emptyField();
+             alert("Item Added successfully");
+              console.log(itemListArr);
+
+            display();
+        }
+        
+        
+        
+    });
+    console.log(itemListArr)
+    // localStorage.clear("ecom_ls_test_project_1_itemList")
+
+    // --- display card
+    window.addEventListener("load", (e) =>{
+                 
+                 display();
+    });
+
+
+
+    // --- display()
+    function display(){
+        emptyDisplayCard();
+        var displayCard = document.getElementById("displayCard");
+
+        itemListArr.map( (item,index)=>{
+            var card = document.createElement("div");
+            card.id = "card";
+            card.classList = "card";
+            card.innerHTML = `<div class="cardTop">
+                                     <img src="${item.pic}" class="img">
+                               </div>
+                                <div class="cardBottom">
+                                    <h1> ${item.name} </h1>
+                                    <p> Price : ${item.price} </p>
+                                </div>
+                            `;
+
+            displayCard.append(card)
+        })
+
+        
+
+    }
+    
+</script>

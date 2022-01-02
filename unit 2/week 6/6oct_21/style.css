@@ -1,0 +1,162 @@
+* {
+  font-family: "Times New Roman", Times, serif;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  --ligth_grey: rgb(85, 85, 83);
+  --dark-green: #178143;
+}
+
+/* -------------- Table.html----------- */
+.tablediv {
+  margin: 0 auto;
+  padding-top: 10px;
+  width: min-content;
+}
+.table1 td,
+.table1 {
+  border: 1.1px solid;
+  border-collapse: collapse;
+}
+
+.table1 td {
+  padding: 5px 10px;
+  font-size: large;
+  font-weight: bold;
+}
+
+/* -------------- Table.html----------- */
+
+/* -------------- Resume.html----------- */
+
+/* head */
+.container {
+  background-color: white;
+  width: 750px;
+  margin: 0 auto;
+  /* border: 1px solid; */
+  padding-bottom: 30px;
+}
+
+.head {
+  border-bottom: 1px solid rgb(146, 146, 146);
+  padding: 15px 15px;
+  padding-bottom: 10px;
+}
+
+.head h1 {
+  /* border: 1px solid; */
+  /* margin: 0px 0px 0px 0px; */
+  text-transform: uppercase;
+}
+
+.head h1 .light {
+  color: var(--ligth_grey);
+}
+
+.head .info {
+  color: var(--ligth_grey);
+  font-size: 0.9rem;
+  /* border: 1px solid; */
+}
+.head .info .email {
+  font-weight: bold;
+  color: var(--dark-green);
+}
+.head .info a {
+  font-weight: bold;
+  color: #317eb1;
+}
+
+/* starting para */
+
+/*  */
+.head-titles {
+  color: #c0392b;
+  margin-bottom: 20px;
+}
+.mt-20 {
+  margin-top: 23px;
+}
+
+/*  */
+
+.startingPara {
+  /* border: 1px solid; */
+  margin: 10px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+/* starting para */
+
+.blocks {
+  /* border: 1px solid; */
+  margin: 10px;
+}
+
+.blocks .matter {
+  margin-left: 4px;
+  border-left: 2px dotted rgb(146, 146, 146);
+  padding: 4px;
+}
+
+.blocks .matter .date {
+  font-weight: bold;
+}
+.blocks .matter .jobt {
+  font-weight: bold;
+  color: var(--dark-green);
+}
+.blocks .matter .company {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.blocks .matter .discr {
+  margin-top: 4px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+/* EDUCATION */
+
+.eduTbl {
+  /* border: 1px solid; */
+  text-align: left;
+}
+.eduTbl td {
+  /* border: 1px solid; */
+  width: 200px;
+  font-weight: bolder;
+  font-size: 16px;
+}
+.eduTbl th {
+  /* border: 1px solid; */
+  width: 200px;
+  background-color: var(--dark-green);
+  color: white;
+  padding: 3px;
+}
+
+.eduTbl .a td {
+  background-color: #cedacf;
+}
+.eduTbl .b td {
+  background-color: #e3ece4;
+}
+
+/*  SKILL  */
+.skill .cont {
+  display: flex;
+}
+.skill .opt {
+  /* border: 1px solid; */
+  width: 48%;
+}
+.ls-c {
+  margin-left: 30px;
+  padding-left: 10px;
+}

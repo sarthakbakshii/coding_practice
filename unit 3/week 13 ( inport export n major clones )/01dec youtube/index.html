@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #searchResults {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Youtube</h1>
+    <input type="text" id="search">
+    <button id="searchBtn" onclick="searchVedios()">Search</button>
+    <div id="searchResults"></div>
+
+</body>
+
+</html>
+<script>
+    let youtubeAPIkey = `AIzaSyB8ISqc9mU6E71OulGswURd51y2qjmWJHs`;
+    // youtubeAPIkey =`AIzaSyDmyZh9TG9EVhe-b2hCWEHBaLima29uf0M`;    // my
+
+    async function searchVedios() {
+        try {
+            let inp = document.getElementById("search").value;
+
+            let url = `https://youtube.googleapis.com/youtube/v3/search?q=${inp}&key=${youtubeAPIkey}`;
+
+            url = `https://youtube.googleapis.com/youtube/v3/search?q=${inp}
+            &key=${youtubeAPIkey}
+            &type=video
+            &part=snippet`;
+            // url = `https://youtube.googleapis.com/youtube/v3/videos?maxResults=10&key=${youtubeAPIkey}`
+            let res = await fetch(url);
+            let data = await res.json();
+            console.log(data.items);
+            appendVedio(data.items);
+        }
+        catch (err) {
+            console.log("error : => ", err);
+        }
+
+    }
+
+    // function appendVedio(arr){
+
+    const appendVedio = (arr) => {
+
+        // arr.forEach(key => {
+        //     console.log(key)
+        // });
+
+        // arr.forEach(({ id }) => {
+        //     console.log(id);
+        // });
+
+        arr.forEach(({ snippet, id: { videoId } }) => {
+            // console.log(id);
+            console.log("vedioId : ", videoId);
+
+            let div = document.createElement("div");
+            document.getElementById("searchResults").append(div)
+
+            let url = snippet.thumbnails.medium.url;
+            let img = document.createElement("img");
+            img.src = url;
+
+            // let iframe = document.createElement('iframe');
+            // iframe.src = `https://www.youtube.com/embed/${videoId}`;
+            // iframe.width = "460px";
+            // iframe.height = "260px";
+            // // iframe.allowFullscreen = "true";
+            // div.append(iframe)
+
+            let title = snippet.title;
+            let h4 = document.createElement("h4");
+            h4.innerHTML = title;
+
+            div.append(img,h4)
+
+            // ------ change the page on clicking to play vedio
+            // div.addEventListener("click",() =>{
+
+            // })   || OR ||
+
+            // div.onclick = "  "
+
+            div.onclick = () =>{
+                showVedio( {videoId,snippet} );
+            }
+
+        });
+    }
+
+    // function showVedio(){
+    //     alert("clicked")
+    // }
+    const showVedio = (vediodata) =>{
+        // alert("clicked")
+        // console.log("vedioData: ", vediodata)
+
+        localStorage.setItem("clicked_vedio",JSON.stringify(vediodata));
+       
+         window.location.href = "vedio.html"  //but it will open it on new tab:
+        // window.open = "vedio.html";
+
+    }
+</script>

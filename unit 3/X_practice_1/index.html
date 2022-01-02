@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ------------------------- navbar -------------------------- -->
+    <nav id="nav"> 
+    </nav>
+    <!-- ------------------------- navbar -------------------------- -->
+
+    <!-- --------------------------Search collum-------------------- -->
+    <div id="searchSec">
+        <input type="text" id="input">
+        <input type="submit" id="searchBtn" value="search">
+    </div>
+    <div class="debounceBox" id="debounceBox">
+        <div class="opt">Movie</div>
+    </div>
+    <!-- --------------------------Search collum-------------------- -->
+
+</body>
+</html>
+<script type="module">
+    import navbar from './components/navbar.js';
+    import {searchData} from './scripts/getData.js'
+    import { debounce, getName } from './scripts/main.js'
+
+    // ----------------------- elements
+    const nav = document.getElementById("nav");
+    const input = document.getElementById("input");
+    const debounceBox = document.getElementById("debounceBox");
+    const searchBtn = document.getElementById("searchBtn");
+
+    // ---------------------- navbar
+    nav.innerHTML = navbar();
+
+    // ---------------------- search
+    if (input.value.length == 0) {
+            debounceBox.innerHTML = null
+            console.log("empty")
+    } 
+
+    input.addEventListener(`keyup`, () => {
+         debounce(getName,300,input);
+    })
+
+    // ---------------------- search btn click
+    searchBtn.addEventListener("click", () =>{
+        
+    })
+
+</script>

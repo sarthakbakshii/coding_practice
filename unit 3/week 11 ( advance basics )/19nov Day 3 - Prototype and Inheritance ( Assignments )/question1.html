@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>
+       *)  Implement the inheritance model of your family both using Object.create() and constructor functions. <br>
+        *)  Starting from your grandparents to your parents you. <br>
+        *)  Create a two min video explaining the prototype chain for the above example. Show proto object.
+    </h3>
+    
+</body>
+</html>
+<script>
+    function generation3(){       //---------------------------- main constructor
+        this.mom = "mom",
+        this.dad = "dad"
+     }
+
+    
+    generation3.prototype.grandFather = "Grand Father"
+    generation3.prototype.grandMother = "Grand Mother";
+
+     const generation2 = new generation3()
+     
+    console.table(generation2)
+
+    // -----------------
+     const generation1 = Object.create(generation2)
+     generation1.me = "sarthak";
+    //  generation1.prototype.punam ="punam";
+
+    console.log(generation1)
+
+    // output => 
+
+
+    
+</script>

@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.cont{
+    border-bottom: 1px solid rgb(236, 230, 230);
+    width: 900px;
+    /* height: 400px; */
+    margin: 50px auto;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    color: #424242;
+    padding: 100px;
+    text-align: center;
+    font-family: DM Sans,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.cont h1{
+    font-size: 47px;
+    font-weight: 500;
+}
+.cont p{
+    font-size: 22px;
+    padding-top: 10px;
+}
+
+/* ----------------------------- */
+
+.card-cont{
+    /* border: 1px solid; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px;
+    /* height: 200px; */
+    padding-bottom:100px;
+    justify-content: center;
+    padding-top:50px;
+}
+
+.card-cont .card{
+    /* border: 1px solid; */
+    width:350px;
+    height: 350px;
+}
+.card-cont .card img{
+    width:250px
+}
+
+.card-cont .card h2{
+    font-size: 28px;
+    font-weight: 500;
+    color: #424242;
+    padding-top: 20px;
+}
+.card-cont .card p{
+    padding-top: 23px;
+    font-size: 17px;
+    line-height: 30px;
+}

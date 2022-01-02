@@ -1,0 +1,22 @@
+.container{
+    /* border: 1px solid; */
+    width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.card{
+    /* border: 1px solid; */
+    /* height: 200px; */
+    padding: 0px;
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+.img{
+    width: 100%;
+}

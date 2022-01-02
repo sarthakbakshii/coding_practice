@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="getPaymetDetai(event)">
+        <input type="text" id="text" placeholder="card number">
+        <input type="number" id="otp" placeholder="Otp">
+        <input type="number" id="cvv" placeholder="cvv">
+        <input type="submit" value="submit">
+    </form>
+    
+</body>
+</html>
+<script>
+    // body.innerHTML = "lodding....."
+function getPaymetDetai(e){
+        e.preventDefault();
+            const data = {
+                number : document.getElementById("text").value,
+                otp : document.getElementById("otp").value,
+                cvv :  document.getElementById("cvv").value
+            }
+            console.log(data)
+            setTimeout(success,3000)
+    }
+    function success(){
+        alert("payment seccessfull");
+        // body.innerHTML = "nul"
+    }
+</script>

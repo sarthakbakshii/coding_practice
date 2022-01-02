@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="nav.js"></script>
+    <script> document.getElementById("login").classList = "active"</script>
+    
+    
+    <div class="formBox">
+        <h1 class="main_heading">Login </h1>
+        <input type="text" id="uname" placeholder="Enter username">
+        <input type="text" id="pass" placeholder="Enter password">
+        <input type="submit" id="loginBtn">
+
+    </div>
+    
+
+</body>
+
+</html>
+<script>
+        //------------------- storage
+        let credentialArr = JSON.parse(localStorage.getItem("credential_ls")) || []
+        console.log(credentialArr)
+
+        // ---------------------- main functions
+        function clrFields() {
+            document.getElementById("uname").value = null;
+            document.getElementById("pass").value = null;
+        }
+        document.getElementById("home").href = "index.html"
+
+        
+
+    // ------ on login
+    document.getElementById("loginBtn").addEventListener('click', () => {
+        const uname = document.getElementById("uname").value;
+        const pass = document.getElementById("pass").value;
+
+        let check = credentialArr.filter(a => {
+           return a.uname == uname && a.pass == pass;
+        })
+        if(check.length == 0){
+            alert("worng user credentials")
+        }else{
+           alert(" welcome "+ uname);
+           location.href = "home.html"
+        }
+
+        
+        clrFields()
+    })
+</script>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            /* border: solid 1px; */
+            width:450px;
+            height: 650px;
+
+            margin:40px auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            align-items: center;
+            font-family: sans-serif;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        }
+        .container .top{
+            height: 120px;
+            margin-top: 40px;
+            width: 90%;
+            /* border: solid 1px; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .container .top .box{
+             /* margin-top: 20px; */
+            width: 40%;
+            height: 100%;
+             /* border: solid 1px; */
+             display: flex;
+             align-items: center;
+             flex-direction: column;
+             gap: 4px;
+        }
+        .container .top .box .min-max{
+            border: solid 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            width: 70%;
+            height: 70%;
+            border-radius: 5px;
+        }
+        .container .top .box .message{
+             /* border: solid 1px; */
+            /* height: 70%; */
+            text-align: center;
+            margin-top: 5px;
+            font-size: 26px;
+        }
+        .container .mid{
+            height: 100px;
+            margin-top: 18px;
+            width: 60%;
+            /* border: solid 1px; */
+             display: flex;
+             align-items: center;
+             flex-direction: column;
+             gap: 4px;
+             
+        }
+        .container .mid .score{
+            border: solid 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            width: 100%;
+             height: 70%;
+            border-radius: 5px;
+        /* box-shadow:inset rgba(0, 0, 0, 0.3) 1px 5px 15px, rgba(0, 0, 0, 0.22) 0px 1px 12px; */
+        }
+        .container .mid .message{
+             /* border: solid 1px; */
+            /* height: 70%; */
+            text-align: center;
+            margin-top: 5px;
+            
+            font-size: 22px;
+        }
+
+        .container .bottom{
+             /* border: solid 1px; */
+              height: 240px;
+            margin-top: 25px;
+            width: 60%;
+            display: grid;
+            /* grid-template-columns: 70px; */
+            grid-template-areas: " a b c " "d e f" "g h i" ". j .";
+            gap: 22px;
+            
+        }
+        .container .bottom input{
+            font-size: 15px;
+            cursor: pointer;
+        }
+       
+        #zero { grid-area: j;}
+        #submit{
+            width: 200px;
+            margin-top: 20px;
+            /* border: 1px solid; */
+            height: 50px;
+            border-radius: 5px;
+            border-width: 2px;
+            cursor: -webkit-grab; cursor: grab;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+                <div class="box">
+                    <div class="min-max" id="min">49</div>
+                    <div class="message" id="message">MIN</div>
+                </div>
+                <div class="box">
+                    <div class="min-max" id="max">51</div>
+                    <div class="message" id="message">MAX</div>
+                </div>
+        </div>
+        <div class="mid">
+                    <div class="message" id="message">SCORE</div>
+                    <div class="score" id="score"></div>
+                    <!-- <input type="text"> -->
+        </div>
+        <div class="bottom">
+                <input type="button" class="one" onclick=" document.getElementById('score').innerHTML += '1'  " value="1" id="one">
+                <input type="button" class="two" onclick=" document.getElementById('score').innerHTML += '2' " value="2" id="two">
+                <input type="button" class="three" onclick=" document.getElementById('score').innerHTML += '3' " value="3" id="three">
+                <input type="button" class="four" onclick=" document.getElementById('score').innerHTML += '4' " value="4" id="four">
+                <input type="button" class="five" onclick=" document.getElementById('score').innerHTML += '5' " value="5" id="five">
+                <input type="button" class="six" onclick=" document.getElementById('score').innerHTML += '6' " value="6" id="six">
+                <input type="button" class="seven" onclick=" document.getElementById('score').innerHTML += '7'" value="7" id="seven">
+                <input type="button" class="eight" onclick=" document.getElementById('score').innerHTML += '8' " value="8" id="eight">
+                <input type="button" class="nine" onclick=" document.getElementById('score').innerHTML += '9' " value="9" id="nine">
+                <input type="button" class="zero" onclick=" document.getElementById('score').innerHTML += '0' " value="0" id="zero">
+                
+        </div>
+        <button value="Submit" class="submit" onclick="calulate()"  id="submit" >Submit</button>
+
+        <script>
+            
+           
+            function calulate(){
+                let score = document.getElementById("score").innerHTML
+                let min = document.getElementById("min").innerHTML
+                let max = document.getElementById("max").innerHTML
+                console.log(score,min,max)
+                if(score < min){
+                    document.getElementById("min").innerHTML = score;
+                    
+                }
+                else if (score > max) {
+                    document.getElementById("max").innerHTML = score;
+
+                }
+                console.log(score, min, max)
+                document.getElementById("score").innerHTML = "";
+            }
+            
+        </script>
+
+    </div>
+</body>
+</html>

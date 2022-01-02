@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="nav.js"></script>
+    <script>  document.getElementById("home").classList = "active"</script>
+
+    
+    
+</body>
+</html>
+<script>
+    const body = document.querySelector("body");
+    
+    // -------------------- corosel
+    const imgArr =[
+        "https://rukminim1.flixcart.com/flap/1688/280/image/296e1504bce3ee6a.jpg?q=50",
+        "https://rukminim1.flixcart.com/flap/3376/560/image/ff68fe1247170be4.jpeg?q=50",
+        "https://rukminim1.flixcart.com/flap/1688/280/image/9709aae351ca073c.jpg?q=50"
+    ]
+    const coroselDisplay = document.createElement("div");
+            coroselDisplay.className = "coroselDisplay";
+    body.append(coroselDisplay);
+
+    let i = 0
+    setInterval( ()=>{
+        // console.log(imgArr[i])
+        coroselDisplay.style.backgroundImage = `url(${imgArr[i]})`;
+         i++
+        if(i == 3) i = 0   ;
+    },2000)
+
+    // ------------------------- filter
+    const cardFilterBox = document.createElement("div");
+        cardFilterBox.className = "cardFilterBox";
+        cardFilterBox.innerHTML = 
+        `
+        <button id="tTol">Top to Low</button>
+        <button id="lToT">Low to Top</button>
+        `;
+        body.append(cardFilterBox)
+
+        // ------------ filter
+        document.getElementById("tTol").addEventListener("click", () =>{
+            movieArr =  movieArr.sort( (a,c)=>a.rating - c.rating );
+            displayCard(movieArr)
+        })
+        document.getElementById("lToT").addEventListener("click", () => {
+                movieArr = movieArr.sort((a, c) => c.rating - a.rating );
+                displayCard(movieArr)
+            })
+
+    
+
+
+    // ------------------------ movie display
+    let movieArr = []
+    function createMovieWay1 (name,relese,img,rating){
+        this.name = name,
+        this.relese = relese,
+        this.img = img,
+        this.rating = rating
+    }
+
+    movieArr.push(new createMovieWay1("Warcraft","22 nov","https://occ-0-6245-2186.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcz-7io4iAxOuRZFCLECFA627pY6xnAYg-_FbU9S2oJqzeZyk8MuI0J89MOlPe3dWaBXuk5PEq7RrGLUGsKJLAstQuw.jpg?r=a42","8.2"))
+    movieArr.push(new createMovieWay1("Venom", "21 apr", "https://occ-0-6245-2186.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABeDyYguyRPqiONrCAsZRrrEK52jApnv5eXKes28q7dGwc3RiQJ_T_OBHnu9dh3JqFT8V1qbwUUROnTTsUmLp9lW_40A.jpg?r=93b", "7.6"))
+    movieArr.push(new createMovieWay1("jaurasic world", "4 june", "https://occ-0-6245-2186.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABa85v-mk_WBILFHjeSVgOUBr2ExNKLvAX47QdJ-P2NdrxYjTN52co7OEYaJcmzjYOS-I1-TL3kU_rt3i9enYXDDtMjI.jpg?r=5a8", "9.4"))
+    movieArr.push(new createMovieWay1("Amaizing Makri Manus", "14 june", "https://occ-0-6245-2186.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABZGYSToVQc-zxEzN4we_OSaap722CgvuUVDLISWEFQ0VbNMzGsbU22kl2O2rqL97y2uQLsjpVeu3ev4dBMB19kE0964.jpg?r=632", "8.1"))
+
+    // console.log(movieArr)
+
+    // --- main container
+    const cardBox = document.createElement("div");
+    cardBox.className = "cardBox";
+    body.append(cardBox)
+
+    window.addEventListener('load',()=>{
+        displayCard(movieArr)
+    })
+
+    function displayCard(movieArr){
+        cardBox.innerHTML = "";
+        
+        movieArr.map( movie =>{
+            let card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = 
+            `
+            <img src="${movie.img}" class="img">
+            <h2>${movie.name}</h3>
+            <p>Release Date : ${movie.relese}</p>
+            <h3>Rating : ${movie.rating} </h3>
+            `;
+
+            cardBox.append(card)
+        })
+
+    }
+    
+
+    
+
+
+
+</script>

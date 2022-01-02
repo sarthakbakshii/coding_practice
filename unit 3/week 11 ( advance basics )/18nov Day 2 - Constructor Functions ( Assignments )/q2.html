@@ -1,0 +1,190 @@
+<!-- this is an extension of the above problem.
+add a function named toggle_task.
+if you invoke that function then it will toggle the status.
+for e.g. if the status is false, after invoking the toggle_task function, the status will be true and vice versa. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin: auto;
+            width: 650px;
+            /* border: 1px solid; */
+            padding: 20px;
+        }
+
+        .container .inputBox {
+            /* border: 1px solid; */
+            display: flex;
+        }
+
+        input[type="text"] {
+            padding-left: 20px;
+            width: 250px;
+            height: 23px;
+        }
+
+        input[type="submit"] {
+            width: 150px;
+        }
+
+        .container .displayBox {
+            /* border: 1px solid; */
+
+        }
+
+        .container .displayBox .box {
+            border-bottom: 1px solid;
+            display: flex;
+        }
+        .box button{
+            height: 30px;
+        }
+        .total::before{
+            content: "Total : ";
+        }
+        .total{
+            padding-left: 10px;
+            width: 120px;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .box li:last-child{
+            list-style: none;
+        }
+        .green{
+            color: rgb(55, 212, 55);
+
+            text-decoration: line-through;
+        }
+        .green li{
+            list-style: square;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inputBox">
+            <input type="text" id="text" placeholder="Enter the data">
+            <input type="submit" value="Submit" id="submit">
+            <!-- <input type="submit" value="toggle" id="toggle"> -->
+            <div class="total" id="total"></div>
+        </div>
+        <div class="displayBox" id="displayBox">
+            <!-- <div class="box">
+                    <ul>
+                        <li>sdfdfd</li>
+                        <li>sdfdfd</li>
+                        <li>sdfdfd</li>
+                    </ul>
+                </div> -->
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+ 
+<script>
+    //---------------- storage
+    let dataArr = JSON.parse(localStorage.getItem("constrtorQuiz")) || [];
+
+    //   -------------- main constr
+    function toDo(name) {
+        this.name = name,
+            this.creationDate = new Date(),
+            this.status = false
+    }
+
+    //  ---------------------- on lode
+    window.addEventListener("load",()=>{
+        displayData(dataArr);
+        countTotal()
+    })
+    
+    // ----------------- create data
+    document.getElementById("submit").addEventListener("click", () => {
+        let name = document.getElementById("text").value;
+
+        var tast = new toDo(name);
+        
+        dataArr.push(tast);
+        localStorage.setItem("constrtorQuiz",JSON.stringify(dataArr))
+        console.log(dataArr);
+
+        displayData(dataArr) ;
+
+        document.getElementById("text").value = "";
+
+    })
+
+    // --------------- display data
+    function displayData(task) {
+         countTotal()
+
+        var displayBox = document.getElementById("displayBox");
+        document.getElementById("displayBox").innerHTML = ""
+
+        task.map((item, index) => {
+            var box = document.createElement("div");
+            box.classList = "box";
+            box.innerHTML = `
+        <ul>
+            <li> Name of task : ${item.name}</li>
+            <li> Creation Date : ${item.creationDate}</li>
+            <li> Status : ${item.status}</li>
+            <li> <button onclick="deleteData(${index})">DELETE</button>
+                <button onclick="toggle(${index})">TOGGLEE</button>
+                <button onclick="done(${index})">DONE</button>
+             </li>
+        </ul>
+        `;
+            displayBox.append(box)
+
+        })
+
+        
+    }
+   
+    function deleteData(i){
+       console.log(i)
+        dataArr.splice(i,1);
+        localStorage.setItem("constrtorQuiz", JSON.stringify(dataArr))
+        displayData(dataArr)
+    }
+   
+    function toggle(i){
+        console.log(i);
+        console.log(dataArr[i])
+        console.log(dataArr[i].status)
+        dataArr[i].status = !dataArr[i].status;
+        console.log(dataArr[i].status)
+        console.log(dataArr[i])
+        console.log(dataArr)
+         localStorage.setItem("constrtorQuiz", JSON.stringify(dataArr))
+        displayData(dataArr)
+    }
+
+
+    // ------------------------------------------- total count
+    function countTotal(){
+        count = 0;
+        dataArr.map( a => count++)
+        document.getElementById("total").innerHTML = count
+    }
+
+    // --------------------------------------------- done
+    function done(index){
+        box = document.querySelectorAll(".box")
+        console.log(box[index])
+        box[index].classList += " green"
+    }
+</script> 

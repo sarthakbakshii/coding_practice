@@ -1,0 +1,115 @@
+header{
+    /* border: 1px solid; */
+    display: flex;
+     margin-bottom: 20px;
+    align-items: center;
+}
+header h1{
+    width: 500px;
+    /* border: 1px solid; */
+}
+header select {
+    height: 30px;
+    margin-left: 30px;
+}
+.displayBox{
+       /* border: 1px solid; */
+       display: grid;
+      
+       gap: 20px;
+       grid-template-columns: repeat(4,1fr);
+}
+.displayBox .card{
+    /* height: 200px; */
+    /* border: 1px solid; */
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.displayBox .card img{
+    height: 180px;
+}
+.displayBox .card h1{
+    font-size: 20px;
+}
+.displayBox .card h2{
+    width: 200px;
+    /* border: 1px solid; */
+    display: inline-block;
+}
+.displayBox .card h4{
+    width: 100px;
+    display: inline-block;
+    /* border: 1px solid; */
+}
+.displayBox .card .cartBtn{
+     border: 1px solid;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 30px;
+     transition: 0.5s;
+     border-radius: 5px;
+}
+.displayBox .card .cartBtn:hover{
+    color: white;
+    background-color: rgb(155, 151, 151);
+}
+.cartPage{
+    border-radius: 5px;
+    margin-left: 30px ;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 5px 20px ;
+    cursor: pointer;
+}
+
+/* ------------------------------ cart.html ------------- */
+
+.totalBox{
+     /* border: 1px solid; */
+     height: 50px;
+    display: flex;
+    width: 90%;
+    margin: auto;
+     margin-bottom: 20px;
+    align-items: center;
+    
+}
+.totalBox #totalPrice,
+.totalBox #totalItems{
+    padding-left: 20px;
+    margin-right: 50px;
+}
+#promocode{
+    width: 250px;
+    height: 25px;
+}
+#newPrice{
+     padding-left: 20px;
+    margin-right: 50px;
+}
+
+/* -------------------- checout page-------- */
+
+.address{
+    /* border: 1px solid; */
+    width: 400px;
+    margin: auto;
+    
+}
+.address #exp,
+.address #cardno,
+.address #cvv{
+    width: 100%;
+    height: 25px;
+}
+
+#placeOrder{
+    width: 102%;
+    margin-top: 30px;
+    height: 30px;
+}

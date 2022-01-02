@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <center>
+            <h1>Movie Finder</h1>
+            <input type="text" id="tet">
+            <button onclick="getM()">submit</button>
+    </center>
+    <div class="displaynox" id="displaynox">
+
+    </div>
+    
+</body>
+</html>
+<script>
+    // const url = "http://www.omdbapi.com/?s=Spiderman&apikey=6063465"
+    // // const url = "http://www.omdbapi.com/apikey.aspx?VERIFYKEY=759cf9c2-608f-4499-ab9c-2fa090865787"
+    // console.log(fetch(url))
+    // fetch(url).then(function(req){
+    //     // console.log(req.json())
+    //     req.json().then(function (req){
+    //         console.log(req.Search)
+    //     })
+    // }).catch(function(err){
+    //     console.log("err : ",err)
+    // })
+
+    function getMovie(){
+        let input = document.getElementById("tet").value;
+        console.log(input)
+        let key = "6063465";
+
+        const url = `http://www.omdbapi.com/?s=${input}&apikey=${key}`;
+   
+        // console.log(fetch(url))
+    fetch(url).then(function(req){
+        // console.log(req.json())
+        req.json().then(function (req){
+            console.log(req.Search)
+        })
+    }).catch(function(err){
+        console.log("err : ",err)
+    })
+    }
+// ------------------------------------------------------------------ main working
+    async function getM(){
+        try{
+            let input = document.getElementById("tet").value;
+            console.log(input)
+            let key = "6063465";
+
+            const url = `http://www.omdbapi.com/?s=${input}&apikey=${key}`;
+
+            let res = await fetch(url);
+            let data = await res.json();
+            console.log(data)
+            if( data.Response == "False"){
+                alert(data.Error)
+            }
+            console.log(data.Search)
+            dispayData(data.Search)
+            document.getElementById("tet").value = null
+        }
+        catch(data){
+                console.log(data)
+        }
+    }
+
+    // --------------------------- display data
+    let displaynox = document.getElementById("displaynox");
+    function dispayData(movie){
+            document.getElementById("displaynox").innerHTML = ""
+        movie.map( a=> {
+            console.log(a)
+            let card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = 
+            `
+            <img src="${a.Poster}">
+            <h3>${a.Title}</h3>
+            <p>${a.Type}</p>
+            <p>${a.Year}</p>
+            `;
+
+            displaynox.append(card)
+        })
+
+    }
+    // { Title: 'Titanic', Year: '1943', imdbID: 'tt0036443', Type: 'movie', Poster: 'https://m.media-amazon.com/images/M/MV5BNDk4Yzc2Mm…DMyZDhhXkEyXkFqcGdeQXVyNjQzNDI3NzY@._V1_SX300.jpg' }.
+    // Poster: "https://m.media-amazon.com/images/M/MV5BMTI1ODM0Njc3OV5BMl5BanBnXkFtZTcwMTAwMjIyMQ@@._V1_SX300.jpg"
+    //     Title: "The Last Don"
+    //     Type: "series"
+    //     Year: "1997"
+    //     imdbID: "tt0118381"
+</script>

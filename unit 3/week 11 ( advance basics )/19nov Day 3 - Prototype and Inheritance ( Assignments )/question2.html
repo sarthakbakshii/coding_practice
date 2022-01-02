@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Create your custom Array constructor which should return an Array Object. <br>
+    It should have the property as length depending upon the total no of arguments passed to the constructor function.
+
+</body>
+</html>
+<script>
+    const originalArray = ["one","two","three"];
+    console.log(originalArray);
+
+    const originalArray2 = new Array("one","two","three")
+    console.log(originalArray2)
+
+    const originalLookingAray = new myArray("one", "two", "three");
+    console.log(originalLookingAray)
+
+    // -------------------------------------------------------------------------
+    function myArray(){
+
+        Object.defineProperty(this, "length", {
+
+            writable: true,
+            enumerable: false,
+        })
+
+        for(let i = 0 ; i < arguments.length ; i++){
+            // console.log(arguments[i])
+            this[i] = arguments[i]
+        }
+        this.length = arguments.length
+    }
+
+
+     // -------------------------------------------------------------------------
+</script>

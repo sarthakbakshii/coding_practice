@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="header">
+        
+    </div>
+    <div id="main">
+        <button id="getRepoBtn">get repos</button>
+
+    </div>
+</body>
+
+</html>
+<script type="module">
+    import navbar from './component/navbar.js';
+    import getData from './scripts/getData.js'
+    console.log(navbar);
+    console.log(getData);
+
+    let response;
+
+    const header = document.getElementById("header");
+    header.innerHTML = navbar();
+
+    // let searchValue = document.getElementById("search-input");
+    // this is not inside any ascnc fun so it will run first ,but navbar is not here at that time.
+
+    let searchBox = document.getElementById("search-input");
+    searchBox.addEventListener("keypress",makeApiCall)
+
+    async function makeApiCall(e) {
+        if(e.key === "Enter"){
+             let user = searchBox.value;
+             console.log(user)
+             let img= document.getElementById("profileImg");
+
+             response = await getData(user);
+            console.log(`response : ${response}`);
+
+            img.src = response.avatar_url;
+        }   
+    }
+
+    let btn = document.getElementById(`getRepoBtn`);
+    btn.addEventListener("click", getRepo);
+
+    async function getRepo(){
+        let res = await fetch(response.repos_url);
+        let data = await res.json();
+        console.log(`data : ${data}`);
+    }
+
+
+
+</script>

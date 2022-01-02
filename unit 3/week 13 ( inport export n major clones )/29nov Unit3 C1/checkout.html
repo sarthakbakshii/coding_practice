@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <title>unit 3 c1</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-color: rgba(192, 204, 214, 0.466);
+        }
+    </style>
+</head>
+<body>
+    <div class="checkoutBox">
+        <h3>Check Out</h3>
+        <input type="text" class="input" id="inp" placeholder="Enter Address">
+        <input type="submit" class="input" id="endStatemnt" value="Book Now">
+
+    </div>
+    
+</body>
+</html>
+<script>
+    document.getElementById("endStatemnt").addEventListener("click",() =>{
+       document.getElementById("inp").value = ""
+        alert("Your order is accepted")
+        setTimeout( () =>{
+            alert("Your order is being cooked ")
+        },3000)
+        setTimeout(() => {
+            alert("Your order is ready ")
+        }, 8000)
+        setTimeout(() => {
+            alert(" Order out for delivery ")
+        }, 10000)
+        setTimeout(() => {
+            alert("Order delivered ")
+        }, 12000);
+        setTimeout(() => {
+            location.href = "menu.html"
+        }, 13000);
+        
+    })
+</script>

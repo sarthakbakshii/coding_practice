@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //======================================================== ALL URLS 
+    let url_allCategories = `https://www.themealdb.com/api/json/v1/1/categories.php`  //  List all meal categories
+    let url_filterByCat = `https://www.themealdb.com/api/json/v1/1/filter.php?c=`;
+    //======================================================== ALL URLS
+    
+    // ================================================= on load events
+    window.addEventListener('load', () => {
+        getCatagory()
+    })
+
+    // ================================================= on load events
+
+    // ---- step1 || fetching all catagory
+    const getCatagory = async () => {
+        try{
+            let res = await fetch(url_allCategories);
+            let data = await res.json();
+            // console.log(data.categories);
+            return allCatagories(data.categories)
+        }
+        catch(err){
+            console.log("error in getCatagory() :- ",arr)
+        }
+    }
+    // step 2 || check you have all catagories or not?
+    const allCatagories = async (cat) =>{
+        cat.map( a =>{
+            // console.log(a.strCategory)
+            getFood(a.strCategory)
+        })
+    }
+
+    // let cat = "Beef";
+    // cat = "Dessert";
+    let foodList = []
+
+    // step 3 || filter food by specific catagory
+    const getFood = async (cat) =>{
+        try{
+            let res = await fetch(url_filterByCat+`${cat}`)
+            let data = await res.json()
+            // console.log(data.meals);
+            // return data.meals;
+            data.meals.map( a=>{
+                // console.log(a)
+                foodList.push(a.strMeal)
+            })
+            
+        }
+        catch( err ){
+            console.log("error in getFood() := ", err)
+        }
+    }
+
+
+    console.log(foodList)  // list of all food
+
+</script>

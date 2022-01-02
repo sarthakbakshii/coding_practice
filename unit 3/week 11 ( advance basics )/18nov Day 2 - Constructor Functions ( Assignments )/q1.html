@@ -1,0 +1,99 @@
+<!-- Create multiple tasks using the constructor function. Make sure to comment on each line describing what it's doing.
+
+create a constructor function Task. Do not use an object literal to create objects, use constructor functions.
+constructor function will have the name of the task, creation date, and status of the task
+default status will be false.
+The name of the task will be accepted using an input box.
+as soon as the user clicks on ‘submit’, show the task on the webpage in list format. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: auto;
+            width: 600px;
+            /* border: 1px solid; */
+            padding: 20px;
+        }
+        .container .inputBox{
+            /* border: 1px solid; */
+            display: flex;
+        }
+        input[type="text"]{
+            padding-left: 20px;width: 250px;
+            height: 23px;
+        }
+        input[type="submit"]{
+            width: 150px;
+        }
+        .container .displayBox{
+            /* border: 1px solid; */
+            
+        }
+        .container .displayBox .box{
+            border-bottom: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <div class="inputBox">
+                <input type="text" id="text" placeholder="Enter the data">
+                <input type="submit" value="Submit" id="submit">
+            </div>
+            <div class="displayBox" id="displayBox">
+                <!-- <div class="box">
+                    <ul>
+                        <li>sdfdfd</li>
+                        <li>sdfdfd</li>
+                        <li>sdfdfd</li>
+                    </ul>
+                </div> -->
+
+            </div>
+    </div>
+    
+</body>
+</html>
+<script>
+  
+//   -------------- main constr
+    function toDo(name){
+         this.name = name,
+        this.creationDate = new Date(),
+        this.status = false      
+    }
+    
+// ----------------- create data
+    document.getElementById("submit").addEventListener("click",() => {
+        let  name = document.getElementById("text").value;
+
+        let tast = new toDo(name);
+        console.log(tast);
+        displayData(tast)
+        document.getElementById("text").value = "";
+       
+    })
+
+    // --------------- display data
+    function displayData(task){
+        var displayBox = document.getElementById("displayBox");
+
+        var box = document.createElement("div");
+        box.classList = "box";
+        box.innerHTML=`
+        <ul>
+            <li> Name of task : ${task.name}</li>
+            <li> Creation Date : ${task.creationDate}</li>
+            <li> Status : ${task.status}</li>
+        </ul>
+        `;
+
+       displayBox.append(box)
+    }
+
+</script>

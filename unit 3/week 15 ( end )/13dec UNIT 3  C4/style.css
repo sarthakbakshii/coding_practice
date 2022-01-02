@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+nav{
+ /* border: 1px solid; */
+ display: flex;
+ background-color: rgb(126, 126, 126);
+ padding-left: 50px;
+ padding-right: 300px;
+ align-items: center;
+ justify-content: space-between;
+}
+nav .logo{
+    /* border: 1px solid; */
+    font-size: 21px;
+    font-weight: bolder;
+    color: white;
+}
+nav .options{
+    /* border: 1px solid; */
+    display: flex;
+    gap: 100px;
+    height: 45px;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    height: 30px;
+    font-size: 20px;
+    margin-top: 10px;
+
+}
+/* ------------------------- */
+.container{
+    display: flex;
+}
+.sidebar{
+    border-right: 1px solid;
+    /* height: 1000px; */
+    width: 450px;
+    box-sizing: border-box;
+    padding: 20px;
+    cursor: pointer;
+}
+.sidebar h3{
+    text-align: center;
+    border-bottom: 1px solid;
+    margin-bottom: 20px;
+}
+.sidebar .item{
+    /* border: 1px solid; */
+    height: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: #aed6f148
+}
+.sidebar .item h4{
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+  margin-bottom: 4px;
+}
+.sidebar .item .p{
+    font-size: 15px;
+    margin-bottom: 4px;
+    /* border: 1px solid; */
+    max-height: 20px;
+    overflow: hidden;
+}
+.sidebar .item .des{
+    /* border: 1px solid; */
+    height: 55px;
+    /* max-height: 50px; */
+    overflow: hidden;
+}
+/* ----------------------------------------- */
+.displayBox{
+    box-sizing: border-box;
+    padding: 40px;
+    /* border: 1px solid; */
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.displayBox h2{
+    border-bottom: 1px solid;
+}
+.displayBox .imgBox{
+    /* border: 1px solid; */
+    display: flex;
+    gap: 10px;
+}
+.displayBox img{
+    height: 200px;
+}
+.displayBox .imgContent{
+
+}
+.displayBox .imgContent p{
+    margin-bottom: 10px;
+}
+.displayBox .imgContent p span{
+    font-weight: bold;
+}
+/* ====================================================================================================== */
+/* search .html */
+
+/* ============ SEARCH SECTION  */
+#searchSec{
+    width: 500px;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 15px;
+}
+#searchSec #input{
+    height: 30px;
+    width: 70%;
+}
+#searchSec #searchBtn{
+    width: 30%;
+}
+.debounceBox{
+    max-height: 200px;
+    /* border: 1px solid; */
+    overflow: auto;
+    width: 500px;
+    position: absolute;
+     background-color: rgb(228, 228, 228);
+    left: 50%;
+    transform: translateX(-50%);
+}
+.debounceBox .opt{
+    /* height: 25px; */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid;
+    /* width: 70%; */
+}
+/* ============ SEARCH SECTION  */
+
+.displayBox2{
+    /* border: 1px solid; */
+    width: 80%;
+    margin: 40px auto;
+    /* height: 200px; */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}

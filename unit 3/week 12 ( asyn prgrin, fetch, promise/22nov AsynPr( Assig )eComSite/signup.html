@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="nav.js"></script>
+    <script>  document.getElementById("signup").classList = "active"</script>
+
+    <div class="formBox">
+        <h1 class="main_heading">Sign Up </h1>
+        <input type="text" id="uname" placeholder="Enter username">
+        <input type="text" id="pno" placeholder="Enter phone number">
+        <input type="text" id="email" placeholder="Enter e mail">
+        <input type="text" id="pass" placeholder="Enter password">
+        <input type="submit" id="signupBtn">
+    
+    </div>
+
+</body>
+
+</html>
+<script>
+    //------------------- storage
+    let credentialArr = JSON.parse(localStorage.getItem("credential_ls")) || []
+    // console.log(credentialArr)
+
+    // ---------------------- main functions
+    function clrFields(){
+        document.getElementById("uname").value = null;
+        document.getElementById("pno").value = null;
+       document.getElementById("email").value = null;
+        document.getElementById("pass").value = null;
+    }
+    
+    // ---------------- on signup
+    document.getElementById("signupBtn").addEventListener('click', () => {
+        const uname = document.getElementById("uname").value;
+        const pno = document.getElementById("pno").value;
+        const email = document.getElementById("email").value;
+        const pass = document.getElementById("pass").value;
+
+        let credentialObj = {uname,pno,email,pass};
+        credentialArr.push(credentialObj);
+        localStorage.setItem("credential_ls",JSON.stringify(credentialArr))
+        // console.log(credentialArr)
+        clrFields();
+
+    })
+</script>

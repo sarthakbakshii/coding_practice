@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Admin Page</h1>
+    <form action="" id="form">
+        <input type="text" id="name" placeholder="Enter Name Of Product">
+        <input type="number" name="" id="price" placeholder="Enter Price">
+        <select name="select" id="select">
+            <option value="tee">Tee</option>
+            <option value="shoe">shoe</option>
+            <option value="something">something</option>
+        </select>
+        <input type="text" name="" placeholder="enter img url" id="img">
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener('submit',addItem)
+
+    var prod = JSON.parse(localStorage.getItem("shoppingBag")) || [] ;
+    function addItem(e){
+        e.preventDefault();
+        // console.log(form)
+        // // u can select form values based on id
+        // console.log(form.name.value);
+        // console.log(form.price.value)
+
+        var productObj = {
+            name : form.name.value,
+            price : form.price.value,
+            type : form.select.value,
+            image_url : form.img.value,
+        }
+
+        console.log(productObj)
+        prod.push(productObj);
+        localStorage.setItem('shoppingBag', JSON.stringify(prod))
+    }
+
+    console.log(prod)
+</script>
+

@@ -1,0 +1,32 @@
+*{
+    margin: 0;padding: 0;
+}
+body > div{
+    width: 900px;
+    /* border: 1px solid; */
+    height: 300px;
+    margin: 200px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body > div > div{
+    /* border: 1px solid; */
+    height: 45%;
+    /* background-color: #217867; */
+    border-radius: 5px;
+    display: flex;
+    
+    justify-content: space-between ;
+    
+}
+
+body > div > div >div{
+    /* border: 1px solid; */
+    width: 18%;
+    /* margin-right: 4%; */
+    background-color: #217867;
+    border-radius: 5px;
+    /* flex-grow: 1; */
+}

@@ -1,0 +1,47 @@
+*{
+    margin: 0;padding: 0;
+}
+body > div{
+    width: 650px;
+    /* border: 1px solid; */
+    height: 500px;
+    margin: 100px auto;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    "a b b c"
+    "d d e f"
+    "g h i i";
+}
+body > div >div{
+    border: 1px solid;background-color: #217867;
+    border-radius: 7%;
+}
+body > div >div:nth-child(1){
+    grid-area:a ;
+}
+body > div >div:nth-child(2){
+    grid-area:b ;
+}
+body > div >div:nth-child(3){
+    grid-area:c ;
+}
+body > div >div:nth-child(4){
+    grid-area:d ;
+}
+body > div >div:nth-child(5){
+    grid-area:e ;
+}
+body > div >div:nth-child(6){
+    grid-area:f ;
+}
+body > div >div:nth-child(7){
+    grid-area:g ;
+}
+body > div >div:nth-child(8){
+    grid-area:h ;
+}
+body > div >div:nth-child(9){
+    grid-area:i ;
+}

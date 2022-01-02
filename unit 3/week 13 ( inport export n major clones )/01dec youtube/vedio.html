@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav{
+            border:1px solid;
+            height: 50px;
+        }
+        .container{
+            display: flex; border:1px solid;
+        }
+        .vedioDtl{
+            width: 70%; border:1px solid;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>vedio page</h1>
+    <nav>
+            nav
+    </nav>
+    <div class="container">
+        <div class="vedioDtl" id="vedioDtl"></div>
+        <div class="recomendatiopn">
+
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    let vediodata = JSON.parse(localStorage.getItem("clicked_vedio"))
+    console.log(vediodata);
+
+    let vedioDtl = document.getElementById("vedioDtl");
+
+            let iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${vediodata.videoId}`;
+            iframe.width = "80%";
+            iframe.height = "80%";
+            iframe.allowFullscreen = "true";
+
+            
+    
+    vedioDtl.append(iframe)
+</script>

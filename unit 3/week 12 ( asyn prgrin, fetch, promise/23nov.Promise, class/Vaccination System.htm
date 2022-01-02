@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promis</title>
+</head>
+<body>
+    <h1>Vaccination System</h1>
+    Name : <input type="text" id="name">
+    <button onclick="register()">Register</button>
+</body>
+</html>
+<script>
+    // ================== promice ====================
+
+    let que = ["babu bhaiya", "raju", "shyam", "totla seth"]; 
+    console.log("que :", que)
+
+    function register(){
+        let name = document.getElementById("name").value;
+        let message = `${name} you are registereed`;
+        alert(message)
+
+        que.push(name)
+
+        let myPromise = new Promise(function(resolve,reject){
+            
+            // checking if 1st ele is Name then run only
+            setInterval(function(){
+                if (que[0] === name) {
+                    resolve(`${name} your turn to get vacination is now only.`);
+                }
+            },1000)
+            
+        });
+
+        myPromise.then(function (res){
+            alert("result :"+res);
+        });
+
+
+    }
+
+    function startVaccination(){
+         que.shift();
+        console.log("que :", que);
+
+        if(que.length === 0){
+            clearInterval(id)
+        }
+       
+    }
+    var id = setInterval(startVaccination,2000)
+</script>
+
+<!-- regiseration -->
+<!-- waiting for turn -->
+<!-- startvaccination, remove people , when your turn come  -->

@@ -1,0 +1,45 @@
+*{
+    margin: 0;padding: 0;
+}
+body{
+    background-color: black;
+}
+.container{
+    width:390px;
+    margin: 80px auto;
+    height: 450px;
+    background-color: #322F30;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    display : flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.box .p1{
+    font-size: 23px;
+}
+.box .p2{
+    font-size: 19px;
+}
+.box .red{
+    font-size: 26px;
+    color: #FF006D;
+}
+.pinkbox{
+    background-color:#FF006D;
+    height: 30px;
+    display: inline-block;
+    padding-top: 13px;
+    border-radius: 30px;
+
+}
+.dash{
+    height:3px;
+    margin:13px auto;
+    width:50px;
+    border-radius: 30px;
+    background-color: white;
+}

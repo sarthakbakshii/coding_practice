@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promis</title>
+</head>
+<body>
+        we are checking for 4 seat if anyone available, show alert
+
+    <h1>Build Ticket Notifier System</h1>
+    <!-- Name : <input type="text" id="name"> -->
+    <button onclick="checkAvailibility()">Check</button>
+</body>
+</html>
+<script>
+    // ================== promice ====================
+    let kanpurToGoa = ["pablo A","messi A","pandey A","Gandu A","avish A","Bangalan A","Punam A","Imran A"];
+     let lucknowToGoa = ["pablo A", "messi A", "pandey A", "Gandu A", "avish A", "Bangalan A", "Punam A", "Imran A"];
+      let kannojToGoa = ["pablo A", "messi A", "pandey A", "Gandu A", "avish A", "Bangalan A", "Punam A", "Imran A"];
+
+    //    ASYNC AWAIT
+
+    async function checkAvailibility(){
+        
+        let myPromis = new Promise(function(resolve,reject){
+
+            setInterval( function () {
+
+                 if (kanpurToGoa.length === 4) {
+                    resolve("kanpur To Goa 4 seats are available")
+
+                    clearInterval(interval);
+                }
+                else if (lucknowToGoa.length === 4) {
+                    resolve("lucknow To Goa 4 seats are available")
+
+                     clearInterval(interval);
+                }
+                else if (kannojToGoa.length === 4) {
+                    resolve("kannoj To Goa 4 seats are available")
+
+                     clearInterval(interval);
+                }
+
+            }, 1000 );
+
+           
+        });
+
+        let  result = await myPromis;
+        console.log("result : ", result)
+    }
+
+    function cancelTicket(){
+
+        //random cancelltaion speed ( Maths.random )
+        // three diffrent speeds for three train
+
+        let CS1 = Math.random() * 5;
+        let CS2 = Math.random() * 5;
+        let CS3 = Math.random() * 5;
+
+        setTimeout(() => {
+            kanpurToGoa.pop();
+        }, (CS1 * 1000));
+
+        setTimeout(() => {
+            lucknowToGoa.pop();
+        }, (CS2 * 1000));
+
+        setTimeout(() => {
+            kannojToGoa.pop();
+        }, (CS3 * 1000));
+
+        console.log(kanpurToGoa, lucknowToGoa, kannojToGoa)
+    }
+
+    // so every 1 second cancelTicket will be called
+    let interval = setInterval(cancelTicket, 1000);
+
+</script>
+
+<!-- regiseration -->
+<!-- waiting for turn -->
+<!-- startvaccination, remove people , when your turn come  -->

@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: #172329;
+}
+
+/* ---------------| SYSTEM DEFAULTS |---------------- */
+
+body{
+    --font1 : DM Sans,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.font1{
+        font-family: var(--font1);
+}
+.mb-50{
+    
+}
+
+
+/* ---------------| SYSTEM DEFAULTS |---------------- */
+.container{
+    /* border: 1px solid; */
+    color: #CECECE;
+    margin: 100px auto;
+    max-width: 780px;
+    text-align: center;
+    
+}
+.container h1{
+    font-size: 2rem;
+    color: white;
+}
+.container p{
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.card-cont{
+    /* border: 1px solid; */
+    color: #CECECE;
+    height: 400px;
+    display: grid;
+    margin: 0 auto;
+    width:1000px;
+    grid-template-columns: repeat(4, 1fr);
+    /* justify-content: center; */
+    /* align-items: center; */
+    column-gap: 20px;
+    row-gap: 10px;
+    
+}
+.card-cont .card{
+    background-color: #1A343A;
+    /* border: 1px solid; */
+    height: 370px;
+    width:230px;
+    justify-items: center;
+}
+
+.card-cont .card img{
+    width: 100%;
+}
+
+.card-cont .card .card-theo{
+     margin: 16px;
+    /* height: 80px; */
+    background-color: transparent;
+    /* border: 1px solid; */
+}
+
+.card-cont .card .card-theo h3{
+    background: transparent;
+    font-size: 22px;
+}
+.card-cont .card .card-theo .position{
+    background: transparent;
+    font-weight: 500;
+    font-size: 16px;
+}
+.card-cont .card .card-theo .campus{
+    background: transparent;
+    padding-top: 2px;
+    font-weight: 500;
+    font-size: 13px;
+}
+.card-cont .card .card-theo .icon{
+    background: transparent;
+    /* border: 1px solid; */
+
+}
+.card-cont .card .card-theo .icon i{
+    margin-top: 8px;
+    font-size: 22px;
+}
+.card-cont .card .card-theo .icon .fa-linkedin{
+    color:#6C8D9E ;
+}
+.card-cont .card .card-theo .icon .fa-twitter{
+    color:#1DA1F2 ;margin-left: 8px;
+    background: transparent;
+    font-size: 20px;
+}

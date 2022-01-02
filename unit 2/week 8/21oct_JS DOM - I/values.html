@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Values</title>
+</head>
+
+<body>
+    <input type="text" name="name" id="name" onfocus="hideError()">
+    <select id="gender" onfocus="hideError()">
+        <option value=""  selected disabled hidden> Choose Gender</option>
+        <option value="male">M</option>
+        <option value="female">F</option>
+    </select>
+    <input type="text" name="email" id="email" onfocus="hideError()">
+    <input type="text" name="mobile" id="mobile" onfocus="hideError()">
+    <hr>
+    <button onclick="showName()">NAME</button>
+    <button onclick="showGender()">GENDER</button>
+    <button onclick="showEmail()">EMAIL</button>
+    <button onclick="showMobile()">MOBILE</button>
+    <div id="error"></div>
+    <script type="text/javascript">
+
+        function hideError(){
+            const error = document.getElementById("error").innerHTML = "";
+
+        }
+
+        function showName() {
+            // Show the alert of the filled name
+
+            const name = document.getElementById("name").value;
+            if(name !== "") {
+                alert(name);
+                document.getElementById("name").value ="";
+            }
+            else{
+                const err = document.getElementById('error');
+               err.innerHTML = "Name is not defined";
+               err.style.marginTop = '20px';
+               err.style.color = 'red';
+            }
+        }
+
+        function showGender() {
+            // Show the alert of the selected Gender
+
+            const gender = document.getElementById("gender").value;
+            if (gender !== "") {
+                alert(gender);
+                document.getElementById("gender").value = "";
+            }
+            else {
+                const err = document.getElementById('error');
+                err.innerHTML = "Gender is not defined";
+                err.style.marginTop = '20px';
+                err.style.color = 'red';
+            }
+        }
+
+        function showEmail() {
+            // Show the alert of the filled email
+
+            const email = document.getElementById("email").value;
+            if (email !== "") {
+                alert(email);
+                document.getElementById("email").value = "";
+            }
+            else {
+                const err = document.getElementById('error');
+                err.innerHTML = "email is not defined";
+                err.style.marginTop = '20px';
+                err.style.color = 'red';
+            }
+        }
+
+        function showMobile() {
+            // Show the alert of the filled mobile
+            const mobile = document.getElementById("mobile").value;
+            const err = document.getElementById('error');
+
+            
+             if (mobile == "") {
+
+                err.innerHTML = "mobile is not defined";
+                err.style.marginTop = '20px';
+                err.style.color = 'red';
+            }
+            else if( mobile.length < 11){
+                     err.innerHTML = "mobile is not valid";
+                err.style.marginTop = '20px';
+                err.style.color = 'red';
+            }
+            else {
+                alert(mobile);
+                document.getElementById("mobile").value = "";
+            }
+            
+        }
+    </script>
+</body>
+
+</html>

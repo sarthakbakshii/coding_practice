@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 300px;
+            /* border: 1px solid; */
+            margin:  auto;
+            margin-top: 100px;
+            display: flex; gap: 20px;
+        } 
+        #error{
+            margin: 0 auto;
+            /* height: 50px; */
+            /* border: 1px solid; */
+            text-align: center;
+            margin: 0 auto;
+            width: 300px;
+        }
+        #contry{
+            width: 200px;
+            padding: 5px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <select name="" id="contry">
+                <option value=""  selected disabled hidden> Choose contry</option>
+                <option value="asia">India</option>
+                <option value="North America">United States of America</option>
+                <option value="asia">China</option>
+                <option value="asia">Nepal</option>
+                <option value="Australia">Australia</option>
+                <option value="Europe">France</option>
+                <option value="Europe">Germany</option>
+                <option value="South affrica">Nigeria</option>
+        </select>
+        <input type="button" onfocus="hideError()" onclick="showContry()" value="click me">
+    </div>
+    <div id="error"></div>
+
+    <script>
+        
+        
+
+        const showContry = () =>{
+            const error = document.getElementById("error");
+            const select = document.getElementById("contry");
+            
+            let con = select.value;
+            
+            if(con == ""){
+                error.innerHTML = "Select an country";
+                
+            }
+            else{
+                alert("Continent name is "+con);
+                select.value = "";
+            }
+        }
+
+        function hideError() {
+                error.innerHTML = "";
+                error.style.marginTop = '20px';
+            error.style.color = 'red';
+
+            }
+    </script>
+</body>
+</html>

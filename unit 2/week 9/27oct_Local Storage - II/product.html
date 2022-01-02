@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product page</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    
+    <style>
+        *{
+            margin: 0;
+        }
+        header{
+            border: 1px solid;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+            padding-right: 50px;
+            justify-content: space-between;
+            color: #fff;
+            font-size: 30px;
+            font-family: sans-serif;
+            background-color: rgb(155, 147, 120);
+        }
+        header .right a{
+            /* border: 1px solid; */
+            cursor: pointer;
+            color: white;
+            transition: .4s;
+
+           
+        }
+        header .right:hover i{
+            font-size: 35px;
+             transition: .2s;
+        }
+        header .right img{
+            height: 40px;
+        }
+        .displayCard{
+            /* border: 1px solid; */
+            width: 90%;
+            margin:50px auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+
+        }
+        .card{
+             /* border: 1px solid; */
+             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+             display: flex;
+             height: 130px;
+             padding: 10PX;
+        }
+        .card .cardTop{
+            /* border: 1px solid; */
+            width: 60%;
+            display: flex;
+        }
+        .card .cardBottom{
+            /* border: 1px solid; */
+            width: 50%;
+            padding-left: 10px;
+        }
+        .card h1{
+            font-size: 25px;
+             /* border: 1px solid; */
+
+        }
+       
+        .card .iconBox{
+              border: 1px solid;
+              font-family: sans-serif;
+              padding: 5px;
+              width: 120px;
+              margin-top: 50px;
+              border-radius: 4px;
+              text-align: center;
+              cursor: pointer;
+              box-sizing: border-box;
+              font-size: 13px;
+              transition: 0.2s;
+        }
+        .card .iconBox:hover{
+             background-color: rgb(155, 147, 120);
+             color: white;
+        }
+        .card .img{
+            max-height: 100%;
+            max-width: 100%;
+            margin: auto;
+            /* height: */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left">E-commerce</div>
+        <div class="mid">
+            <select name="" id="sortByPrice" onchange="sortByPrice()">
+                    <option value="hightToLow"> hight to low </option>
+                    <option value="LowToHigh"> low to high </option>
+            </select>
+            <script>
+                function sortByPrice(){
+                    var selected = document.getElementById("sortByPrice").value;
+                    if(selected == "LowToHigh"){
+                        itemListArr = itemListArr.sort( (a,b) => a.price - b.price)
+                    }
+                    else if (selected == "hightToLow") {
+                        itemListArr = itemListArr.sort((a, b) => b.price - a.price)
+                    }
+                    display(itemListArr)
+                }
+            </script>
+        </div>
+        <div class="right">
+            <a href="cart.html">
+        <i class="fas fa-cart-plus" id="goToCart"></i>
+        </a>
+       </div>
+        
+    </header>
+
+    <div class="displayCard" id="displayCard"></div>
+</body>
+</html>
+
+<script>
+    // --------------------------------------------- storage
+        var itemListArr = JSON.parse(localStorage.getItem("ecom_ls_test_project_1_itemList")) || [];
+        var cartItemArr = JSON.parse(localStorage.getItem("ecom_ls_test_project_1_cartItem")) || [];
+    // --------------------------------------------- main function
+    function emptyDisplayCard() {
+        document.getElementById("displayCard").innerHTML = "";
+    }
+
+    // --- display card
+        window.addEventListener("load", (e) => display(itemListArr) );
+
+    // --- display()
+        function display(itemListArr) {
+            emptyDisplayCard();
+            var displayCard = document.getElementById("displayCard");
+
+            itemListArr.map((item, index) => {
+                var card = document.createElement("div");
+                card.id = "card";
+                card.classList = "card";
+                card.innerHTML = `<div class="cardTop">
+                                     <img src="${item.pic}" class="img">
+                                  </div>
+                                  `;
+                displayCard.append(card);
+
+                var cardBottom = document.createElement("div");
+                cardBottom.classList = "cardBottom";
+                cardBottom.id = "cardBottom";
+                cardBottom.innerHTML =`<h1> ${item.name} </h1>
+                                       <p> Price : ${item.price} </p>`;
+                card.append(cardBottom);
+
+                var iconBox = document.createElement("div");
+                iconBox.classList = "iconBox";
+                iconBox.id = "iconBox";
+                iconBox.innerHTML = " Add to Cart";
+                iconBox.addEventListener("click", () => {
+                    addCard(item)
+                })
+
+                cardBottom.append(iconBox)
+
+                 
+
+               
+            })
+        }
+
+        
+        // ---- add to cart
+        function addCard(item){
+            let cartCheck = cartItemArr.filter( a =>{
+                return a.catagory == item.catagory && a.name == item.name && a.pic == item.pic && a.price == item.price
+            });
+            if(cartCheck.length == 1){
+                console.log("present inside cart");
+                alert("Already present inside cart");
+            }
+            else{
+                 cartItemArr.push(item)
+                 localStorage.setItem("ecom_ls_test_project_1_cartItem",JSON.stringify(cartItemArr))
+                 console.log(cartItemArr)
+            }
+
+            
+           
+        }
+        console.log(cartItemArr)
+</script>
+
+                <!-- card.innerHTML = `<div class="cardTop">
+                    <img src="${item.pic}" class="img">
+                </div>
+                <div class="cardBottom" id="cardBottom">
+                    <h1> ${item.name} </h1>
+                    <p> Price : ${item.price} </p>
+                    <div class="iconBox" id="iconBox" onclick="${addCard(item)}">
+                        Add to Cart
+                    </div>
+                </div>
+                `; -->

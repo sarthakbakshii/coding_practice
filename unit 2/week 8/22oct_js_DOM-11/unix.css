@@ -1,0 +1,131 @@
+*{
+    margin: 0;padding: 0;
+}
+#btn{
+    height: 40px;
+    width: 300px;
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    top: 60px;
+}
+.container{
+    /* border: 1px solid; */
+    width: 1000px;
+    margin: auto;
+    font-family: sans-serif;
+}
+.container .top{
+    /* border: 1px solid; */
+    height: 300px;
+    /* height: 20px; */
+    width: 400px;
+    margin: 30px auto;
+    background-color: #E3DADB;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+     font-family: sans-serif;
+}
+.container .top .img{
+    height: 160px; width: 100px;
+    /* background-image: url(https://via.placeholder.com/150);
+    background-size: cover;
+    background-position: center; */
+    border: 1px solid;
+}
+.container .top h1{
+    font-size: 35px;
+    color: #020081;
+}
+.container .top h3{
+    font-size: 27px;
+    
+    font-weight: 100;
+}
+
+.container .mid{
+      /* border: 1px solid; */
+      width: 680px;
+      height: 120px;
+      margin: 50px auto;
+      display: flex;
+      gap: 30px;
+}
+.container .mid .img{
+    border: 1px solid;
+    width: 100px;
+    background-image: url(https://via.placeholder.com/150);
+    background-size: cover;
+    background-position: center;
+}
+.container .mid .imgcontent{
+    /* border: 1px solid; */
+    width: 550px;
+    box-sizing: border-box;
+}
+.container .mid .imgcontent h1{
+    color: red;
+    /* margin-top: 10px; */
+
+}
+.container .mid .imgcontent p{
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.container .bottom{
+    /* border: 1px solid; */
+    height: 130px;
+    box-sizing: border-box;
+    padding: 15px;
+    display: flex;
+    background-color: #D35500;
+}
+.container .bottom >div{
+    /* border: 1px solid; */
+    box-sizing: border-box;
+}
+.container .bottom .left{
+    width: 50%;
+    padding-left: 30px;
+}
+.container .bottom .left h2{
+    color: white;
+    font-weight: 100;
+    font-size: 30px;
+}
+.container .bottom .left p{
+    width: 400px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: rgb(36, 35, 35);
+}
+.container .bottom .right{
+    width: 50%;
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.container .bottom .right h2{
+    color: white;
+    font-weight: 100;
+    font-size: 30px;
+}
+.container .bottom .right p{
+    width: 400px;
+    /* border: 1px solid; */
+    margin-top: 10px;
+    font-weight: bold;
+    color: rgb(36, 35, 35);
+}
+.container .bottom .line{
+    width: 3px;
+    background-color: black;
+    border-radius: 30px;
+}

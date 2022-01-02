@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 400px;
+        }
+        ul{
+            border: 1px solid;
+            margin-top: 0;
+            width: 408px;
+            padding-left: 10px;
+            list-style: none;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Enter movie name">
+     <ul id="ul"></ul> 
+</body>
+</html>
+<script>
+    // ----------- calling data from input on key up || step 1 ||
+    // document.getElementById("input").addEventListener("keyup", function(){
+    //     let name = this.value;
+    //     console.log(name)
+    // } )
+
+    // ------- ----------- ----------- ---------- ---------- ---------
+    let bomb;
+    let movie_API_key = "6063465";
+    if( document.getElementById("input").value = null){
+        document.getElementById("ul").innerHTML = null
+    }
+
+
+    document.getElementById("input").
+    addEventListener("keyup",() =>  debounce( getname,300)  )
+
+    function debounce(fun,delay){
+        clearTimeout(bomb);
+        bomb = setTimeout( () => { fun() } , delay );
+    }
+
+    function getname(){
+        let name = document.getElementById("input").value;
+        console.log(name) 
+        // getMovie(name)  
+        displaySearchResult(name)  
+    }
+
+    async function getMovie(movie){
+           try{
+                let url = `http://www.omdbapi.com/?s=${movie}&apikey=${movie_API_key}`;
+                let req = await fetch(url);
+                let data = await req.json()
+                // console.log(data)
+                return data
+           }
+           catch(err){
+               console.log("error in movie API ==>> ",err)
+           }
+    }
+
+// ------------- it will give a promise ------------------
+// couz asyncy fuction return a Promise mornal functon return a value
+//  so the fuction in which we are returning the async function will also 
+// have to be a asycn function coz we have to use await 
+
+    async function displaySearchResult(movie){
+        let ul = document.getElementById("ul");
+        ul.innerHTML = null;
+
+        let moviedata = await getMovie(movie)
+        // console.log(moviedata)
+        
+        if(moviedata.Response == "False"){
+            ul.innerHTML = null;
+            let li = document.createElement("li");
+            li.innerHTML = "No Movie available";
+            ul.append(li)
+            return false;
+        }
+
+        console.log("Display = ", movie, moviedata)
+
+        
+        moviedata.Search.forEach(ele => {
+            // console.log(ele)
+            let li = document.createElement("li");
+            li.innerHTML = ele.Title;
+            ul.append(li)
+
+        });
+
+    }
+    
+
+    
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <header>
+        <h1>Cart page</h1>
+        <select name="" id="sortByRating" onchange="sortByRating()">
+            <option value="" selected disabled hidden>Sort By Rating</option>
+            <option value="L"> low to high </option>
+            <option value="H"> high to low </option>
+        </select>
+        <select name="" id="sortByPrice" onchange="sortByPrice()">
+            <option value="" selected disabled hidden>Sort By price</option>
+            <option value="L"> low to high </option>
+            <option value="H"> high to low </option>
+        </select>
+        <a href="checkout.html">
+            <button class="cartPage">
+                CheckOut
+            </button>
+        </a>
+    </header>
+    <div class="totalBox">
+            <h1>TOTAL : </h1>
+            <h1 id="totalPrice"></h1>
+            <h2>number of Items : </h2>
+            <h2 id="totalItems"></h2>
+            <input type="text" id="promocode" placeholder="Enter promocode to get 30% discount" onkeyup="checkPromo()">
+            <h1 id="newPrice"></h1>
+    </div>
+    
+    <div class="displayBox" id="displayBox">
+           
+    </div>
+    
+</body>
+</html>
+<script src="cart.js"></script>

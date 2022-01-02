@@ -1,0 +1,156 @@
+body{
+    background-color: black;
+}
+.container{
+    border: 1px solid;
+    width:1000px;
+    border-radius: 5px;
+    height:550px;
+    margin:100px auto;
+    /* padding: 20px; */
+    display: flex;
+     padding: 10px;
+    box-sizing: border-box;
+    background-color: #F5F5F5;
+    justify-content: space-between;
+}
+.container > div{
+     /* border: 1px solid; */
+     width:49%;height: 100%;
+     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+
+.leftbox > div,
+.rightbox > div{
+    /* border: 1px solid; */
+    width: 100%;
+    
+}
+.leftbox .imgbox{
+    height: 390px;
+}
+.leftbox .newsbox,
+.rightbox .newsbox{
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.leftbox .imgbox .img{
+     /* border: 1px solid; */
+     height: 50%;
+     background-image: url(https://th.thgim.com/news/national/fwrz7q/article30897008.ece/ALTERNATES/FREE_660/TH24Trump-visit1);
+    background-size: cover;
+    background-position: center;
+}
+.leftbox .imgbox .imgcon{
+     /* border: 1px solid; */
+     height: 50%;
+     background-color: #08345B;
+    padding-left: 15px; padding-top: 5px;
+    box-sizing: border-box;
+}
+.leftbox .imgcon h2{
+    color: #EEF6E9;font-weight: normal;
+    letter-spacing: 2px;
+}
+.leftbox .imgcon P{
+    color: #EEF6E9;
+    /* padding-top: 10px; */
+    /* border: blue 1px solid; */
+    width: 95%;
+    overflow: hidden;
+    font-family: sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    line-height: 20px;
+}
+.leftbox .imgcon p span{
+    color: #d9ddd6;
+    padding-top: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: lighter;
+    line-height: 20px;
+}
+
+.newsbox .img{
+    height : 100%;
+    /* border: 1px solid red; */
+    background-image: url(https://i.guim.co.uk/img/media/8ebe64746a20cb9be104471d7751779b4925836d/0_412_4273_2565/master/4273.jpg?width=445&quality=45&auto=format&fit=max&dpr=2&s=dbb18129471724b512b15b122eedfc42);
+    background-size: cover;
+    background-position: center;
+    width: 26%;
+}
+.newsbox .imgcontent{
+    height : 100%;
+    /* border: 1px solid red; */
+    width: 72%;
+    /* vertical-align: top; */
+}
+
+.newsbox .imgcontent h4{
+    font-family: sans-serif;
+    color: darkblue;
+     /* border: 1px solid red; */
+    font-size: 14px;
+    margin-top:10px ;
+}
+.newsbox .imgcontent h3{
+    font-size: 17px;
+     /* border: 1px solid red; */
+    font-weight: bold;
+    margin-top:0px ;
+    color: rgba(15, 15, 15, 0.719);
+}
+
+@media screen and (min-width: 600px) and (max-width:1050px){
+    .container{
+        display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width:650px;
+            height:830px;
+    }
+    .container  .leftbox{
+            height: 530px;width: 100%;
+    }
+    .container .rightbox {
+        display: grid;
+        height: 260px;
+        width: 100%;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+    .rightbox .newsbox{
+       
+    }
+}
+@media screen and (min-width: 0px) and (max-width:600px){
+    .container{
+        display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width:400px;
+            height:1100px;
+    }
+    .container > div{
+     height: 49%;width: 100%;
+     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    .container > .leftbox {
+        height: 49.5%;
+    }
+    .leftbox .imgcon P{
+        height: 60px;
+    }
+}

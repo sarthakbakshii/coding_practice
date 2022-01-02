@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --inputheight : 54px;
+            --defwidth : 400px;
+        }
+        .input{
+            width: var(--defwidth);
+            height: 27px;
+            padding-left: 10px;
+        }
+        #resultBox{
+            /* border: 1px solid; */
+            font-family: sans-serif;
+            width: calc(15px + var(--defwidth ) );
+            background-color: rgba(231, 231, 231, 0.233);
+            /* height: 100px; */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: left;
+            font-size: 14px;
+            
+        }
+        #resultBox p{
+            /* border: 1px solid black; */
+            margin: 0;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            padding-top: 5px;
+            padding-left: 10px;
+            box-sizing: border-box;
+            display: block;
+        }
+        #resultBox p:hover{
+                background-color: rgba(128, 128, 128, 0.212);
+                /* border: 1px solid; */
+        }
+        
+    </style> 
+</head>
+<body>
+    <center> 
+            <input class="input" id="input" type="text" placeholder=" Enter movie name">
+            <div id="resultBox">
+
+            </div>    
+     </center>
+    <div id="displayBox">
+
+    </div>
+    
+</body>
+</html>
+<script>
+
+    let movie_API_key = "6063465";
+
+    const displayBox = document.getElementById("displayBox");
+    const resultBox = document.getElementById("resultBox");
+
+    document.getElementById("input")
+    .addEventListener(`keyup`, () => debounce(getName,300) )
+
+    let bomb;
+    const debounce = (fun , delay ) => {
+        clearTimeout(bomb)
+        bomb = setTimeout( () => { fun() },delay )
+    }
+
+    const getName = async () =>{
+        let name = document.getElementById("input").value;
+        console.log(name);
+        let movie = await getMovie(name);
+        console.log(movie);
+        displayMovie(movie);
+    }
+
+
+    const getMovie = async (movie) =>{
+        try{
+            let url = `http://www.omdbapi.com/?s=${movie}&apikey=${movie_API_key}`;
+            let res = await fetch(url);
+            let data = await res.json();
+            // console.log(data.Search)
+            return data.Search
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+    const displayMovie = (movie) => {
+        resultBox.innerHTML = null
+        if(movie == undefined) {
+            console.log(`NO data available sarthak`)
+        }else{
+
+            movie.map( key => {
+                console.log(key.Title);
+                let p = document.createElement("p");
+                p.innerHTML = key.Title;
+                p.onclick = () =>{
+                    document.getElementById("input").value = key.Title ;
+                    realDisplaay(key)
+                }
+                resultBox.append(p)
+            })
+        }
+    }
+    const realDisplaay = key =>{
+        let card = document.createElement("div");
+        card.className = "card"
+        card.innerHTML =`
+        <h2>${key.Title}</h2>
+        <img src="${key.Poster}">`;
+        displayBox.append(card)
+    }
+    // { Title, Year, imdbID ,Poster}
+    window.onclick = () => resultBox.innerHTML = null ;
+    
+</script>

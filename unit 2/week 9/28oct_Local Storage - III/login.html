@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 400px;
+            border: 1px solid;
+            margin: 20px auto;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        form {
+            width: 100%;
+            /* border: 1px  solid; */
+            box-sizing: border-box;
+            /* padding: 20px; */
+        }
+
+        input {
+            width: 98%;
+            height: 30px;
+            margin-bottom: 20px;
+        }
+
+        input[type=submit] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="" id="form">
+            <label class="lable" for="name">Enter name</label>
+            <input type="text" name="" id="name">
+
+
+            <label class="lable" for="pass">Enter password</label>
+            <input type="password" name="" id="pass">
+
+            <input type="submit" value="sign Up">
+        </form>
+    </div>
+</body>
+
+</html>
+<script>
+    var regUserArr = JSON.parse(localStorage.getItem("ecom_ls_test_project_1")) || [];
+
+        document.querySelector("#form").addEventListener("submit", (e) => {
+                e.preventDefault();
+                var name = document.getElementById("name").value;
+                var pass = document.getElementById("pass").value;
+
+                if(name == "admin" && pass== "admin"){
+                    alert("welcome admin")
+                     window.location.href = "adminPanel/add_Item.html"
+
+                }
+                else{
+                    data = regUserArr.filter(a => {
+                        return a.name == name && a.pass == pass
+                    });
+                    // console.log(data.name)
+                    // console.log(data)
+                    // console.log(data[0])
+                    if (data.length > 0) {
+                        alert(`Welcome ${data[0].name} `)
+                        window.location.href = "product.html"
+
+                    }
+                    else {
+                        alert("invalid user")
+                    }
+                }
+                
+              
+            });
+            console.log(regUserArr)
+
+</script>

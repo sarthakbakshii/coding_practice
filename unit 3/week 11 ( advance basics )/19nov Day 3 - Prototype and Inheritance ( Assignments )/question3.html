@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Whatever arguments are being passed, add them as a key-value pair in our Array object. <br> Here, the key will be the index
+    number, starting from zero.
+</body>
+</html>
+<script>
+
+        // -------------------------------------------------------------------------
+            function myArray() {
+
+                Object.defineProperty(this, "length", {
+
+                    writable: true,
+                    enumerable: false,
+                })
+
+                for (let i = 0; i < arguments.length; i++) {
+                    // console.log(arguments[i])
+                    this[i] = arguments[i]
+                }
+                this.length = arguments.length
+
+            }
+
+            myArray.prototype.myPush = function (arg) {
+                // console.log(arg)
+                this[this.length + 1] = arg
+                
+            }
+            myArray.prototype.testMoney = "datadatadata"
+
+
+     // -------------------------------------------------------------------------
+    const originalArray = ["one","two","three"];
+    console.log( originalArray);
+
+    const originalArray2 = new Array("one","two","three")
+    console.log(originalArray2)
+
+    const originalLookingAray = new myArray("one", "two", "three");
+    console.log(Object.values(originalLookingAray))
+
+    originalLookingAray.myPush("four");
+    console.log(Object.values(originalLookingAray))
+
+
+
+
+    // originalLookingAray.myPush("four")
+ 
+
+</script>

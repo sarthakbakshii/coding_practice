@@ -1,0 +1,72 @@
+*{
+    margin: 0;padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F2F2F2;
+}
+
+.box{
+    /* border: 1px solid; */
+    margin:10px auto;
+    width:780px;
+    height: 370px;
+}
+.box .headtag{
+    /* border: 1px solid; */
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    height: 9%;
+    color: rgb(96, 97, 99);
+}
+.box .story{
+    /* border: 1px solid red; */
+    height: 91%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 10px;
+    
+}
+.box .story .story-item{
+    /* border: 1px solid red; */
+    height: 100%;
+    
+}
+.box .story .story-item .imgbox{
+     /* border: 1px solid red; */
+     height: 72%;
+     background-image: url(https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2020%2F09%2F16%2Fgreek-salmon-bowl.jpeg&q=85);
+     background-size: cover;
+}
+.box .story .story-item .imgcontent{
+     /* border: 1px solid red; */
+     height: 23%;
+     margin-top: 5%;
+}
+.box .story .story-item .imgcontent .content1{
+     /* border: 1px solid red; */
+     width:78%;height: 100%;
+     display: inline-block;
+}
+.box .story .story-item .imgcontent .content1 p{
+     /* border: 1px solid rgb(168, 130, 130); */
+     font-size: 16px;
+     font-weight: bold;
+     color: rgb(129, 128, 128);
+}
+.box .story .story-item .imgcontent .content1 span{
+    font-size: 13px;
+    color: rgb(129, 128, 128);
+}
+.box .story .story-item .imgcontent .content2{
+    /* border: 1px solid rgb(168, 130, 130); */
+    width:18%;
+    height: 100%;
+   
+     display: inline-block;
+     vertical-align: top;
+     
+}
+.box .story .story-item .imgcontent .content2 img{
+    width:100%
+}

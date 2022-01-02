@@ -1,0 +1,17 @@
+*{
+    margin: 0;padding: 0;
+}
+body > div{
+    width: 600px;
+    /* border: 1px solid; */
+    height: 500px;
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+}
+body > div > div{
+    border: 1px solid;
+    width: 20%;
+    background-color: #217867;
+    border-radius: 5px;
+}

@@ -1,0 +1,344 @@
+*{
+    margin: 0;padding: 0;
+
+}
+body{ background-color: #F8FAFC;}
+
+/* ---------- BANNER     */
+.product_banner{
+    /* display: none; */
+    font-family: sans-serif;
+    width: 100%;
+    height: 430px;
+    background-color: white;
+    /* border: 1px solid; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.product_banner .imgBox{
+    /* border: 1px solid; */
+    width: 100%;
+    /* height: 300px; */
+    background-size: cover;
+    background-position: center top;
+    /* background-image: url("https://ik.imagekit.io/upgrad1/marketing-platform-assets/new-images%2Fprogram-backgrounds%2Funiversity%2Ftr%3Aq-2/mba__1635226231214.jpg"); */
+}
+.product_banner .imgBox .nav{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    /* padding-left: 200px; */
+    
+    background-image: linear-gradient(to right, #000000bb , rgba(0, 0, 0, 0.116));
+}
+.product_banner .imgBox .nav .item{
+    display: flex;
+    gap: 30px;
+    font-size: 13.5px;
+    width: 75%;
+    margin: auto;
+
+}
+.product_banner a{
+    color: white;
+    text-decoration: none;
+
+}
+
+.product_banner .imgBox .dtlBox{
+    height: 260px;
+    color: white;
+    
+    /* padding-left:  200px; */
+     background-image: linear-gradient(to right, #000000bb ,rgba(0, 0, 0, 0.233), rgba(255, 255, 255, 0));
+}
+.product_banner .imgBox .dtlBox .item{
+    width: 75%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.product_banner .imgBox .dtlBox h1{
+font-size: 35px;
+font-weight: 500;
+line-height: 45px;
+
+width: 500px;
+}
+.product_banner .imgBox .dtlBox p{
+    font-size: 20px;
+    margin-top: 8px;
+}
+.product_banner .imgBox .dtlBox .btn{
+    width: 180px;
+    height: 40px;
+    margin-top: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #EF403D;
+    color: white;
+    border-radius: 5px;
+    background-color: #EF403D;
+}
+.product_banner .flotingBox{
+    height: 120px;
+    background-color: white;
+   
+    /* top: -60px; */
+    /* border: 1px solid; */
+    width: 75%;
+    width: 1150px;
+    margin: auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    /* position: relative; */
+    display: flex;
+    box-sizing: border-box;
+    padding: 30px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.relativePosition{
+     position: relative;
+     top: -60px;
+}
+.product_banner .flotingBox .item{
+    /* border: 1px solid; */
+
+   
+}
+.product_banner .flotingBox .item h4{
+    font-size: 20px;
+    font-weight: 600;
+}
+.product_banner .flotingBox .item p{
+    color: gray;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+/* ---------- BANNER     */
+
+
+/* ---------- CARD PRODUCTS        */
+.card_heading_main{
+    /* border: 1px solid; */
+    /* display: none; */
+    width: 75%;
+    margin: auto;
+    margin-top: 50px;
+    font-family: sans-serif;
+    color: gray;
+}
+.card_heading_main h5{
+    font-weight: lighter;
+    font-size: 30px;
+    color: black;
+}
+.card_heading_main p{
+    font-size: 14px;
+    margin-top: 5px;
+}
+.product_cardBox{
+    /* border: 1px solid; */
+    
+    width: 75%;
+    width: 1150px;
+    /* height: 600px; */
+    margin: auto;
+    margin-top: 60px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.product_cardBox .card{
+    /* border: 1px  solid; */
+    font-family: sans-serif;
+   
+    height: 320px;
+    background-color: white;
+    display: flex;
+      transition: .5s ease;
+
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+       /* display: none; */
+}
+.product_cardBox .card:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+}
+.product_cardBox .card .img{
+    /* border: 1px solid; */
+    width: 33%;
+    border-radius: 5px;
+      transition: .5s ease;
+    position: relative;
+    top: -15px;
+    background-position: center;
+    background-size: cover;
+    left: -15px;
+
+}
+.product_cardBox .card:hover .img{
+    top: 0px;
+    transition: .5s ease;
+    left: 0px;
+}
+.product_cardBox .card .imgContent{
+    width: 65%;
+    /* border: 1px solid; */
+    box-sizing: border-box;
+    padding: 40px;
+    
+}
+
+.product_cardBox .card .imgContent .top{
+    /* border: 1px solid; */
+    height: 70%;
+}
+.product_cardBox .card .imgContent .top h2{
+    font-weight: lighter;
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+.product_cardBox .card .imgContent .top p{
+    font-size: 14px;
+    margin-top: 10px;
+}
+.product_cardBox .card .imgContent .bottom{
+    border-top: 1px solid rgba(128, 128, 128, 0.349);
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.product_cardBox .card .imgContent .bottom .storry {
+    /* border: 1px solid;    */
+    display: flex;
+    gap: 20px;
+}
+.product_cardBox .card .imgContent .bottom .storry .item p{
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 10px;
+}
+.product_cardBox .card .imgContent .bottom .storry .item h5{
+    font-size: 15px;
+    font-weight: 300;
+}
+.product_cardBox .card .imgContent .bottom .buttonbox{
+    /* border: 1px solid; */
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:10px
+}
+.product_cardBox .card .imgContent .bottom .buttonbox .dwnldBtn{
+    height: 35px;
+   width: 170px;
+   background-color: #FD6261;
+   color: white;
+   border: none;
+   font-size: 15px;
+   border-radius: 5px;
+   font-weight: bold;
+
+}
+.product_cardBox .card .imgContent .bottom .buttonbox .navigationBtn{
+    height: 35px;
+   width: 110px;
+   background-color: white;
+   color: #FD6261;
+   font-weight: bold;
+   border: 2px solid #FD6261 ;
+   font-size: 15px;
+   border-radius: 5px;
+
+}
+/* ---------- CARD PRODUCTS        */
+
+/* ------------ scroll event */
+.sticky {
+  position: fixed;
+  top: 0;
+ left: 50%;
+ transform: translateX(-50%);
+ z-index: 100;
+
+}
+/* ------------ scroll event */
+
+/* ------ callback box */
+
+#callbackBox{
+      border: 1px  solid rgb(170, 170, 170);
+    font-family: sans-serif;
+    border-radius: 8px;
+    height: 300px;
+    display: flex;
+    gap: 20px;
+      margin:50px auto;
+      width: 75%;
+      width: 1150px;
+      padding: 50px;
+box-sizing: border-box;
+justify-content: space-between;
+align-items: center;
+}
+#callbackBox > div{
+    /* border: 1px solid; */
+}
+
+#callbackBox .left{
+    width: 20%;
+    box-sizing: border-box;
+    padding: 10px;
+    line-height: 25px;
+    font-size: 20px;
+}
+#callbackBox .mid{
+    /* height: 200px; */
+    width: 60%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+#callbackBox .mid input{
+    width: 250px;
+    height: 40px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #F8FAFC;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    border-color: rgba(229, 103, 23, 0.8);
+    /* box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(229, 103, 23, 0.6); */
+    outline-color: rgb(0, 0, 255);
+    /* border: 1px solid blue; */
+}
+#callbackBox .right{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 70px;
+}
+#callbackBox .right .btn{
+    width: 180px;
+    height: 35px;
+    margin-top: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #F63F46;
+    color: white;
+    border-radius: 5px;
+    background-color: #F63F46;
+}

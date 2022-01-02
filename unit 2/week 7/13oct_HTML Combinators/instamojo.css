@@ -1,0 +1,80 @@
+*{
+    margin: 0;padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+body > div{
+    /* border: 1px solid; */
+    height: 700px;
+    width: 1050px;
+    margin: 0 auto;
+    
+    /* grid-template-rows: repeat(2, 1fr); */
+}
+body > div > div{
+    /* border: 1px solid; */
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box1 {
+    background-color: #FBF9FF;
+}
+
+.box .section{
+    /* border: 1px solid; */
+    height: 90%;width: 90%;
+    text-align: center;
+    color: #363535;
+}
+.box .section .span{
+    /* border: 1px solid; */
+    height: 3px;width:80px;
+    margin: 17px auto;background-color: black;
+}
+
+.box .section p{
+    font-weight: 600;
+    /* letter-spacing: 1px; */
+    color: rgb(109, 105, 105);
+}
+.box .section .tablebox{
+    width: 100%;
+    /* border: 1px solid; */
+    margin: 20px auto;
+    background-color: white;
+}
+.box2 .section .tablebox{
+    background-color: #fbf9ff70;
+}
+.box .section .tablebox table{
+    width: 95%;
+    /* border: 1px solid; */
+    /* border-collapse: collapse; */
+    height: 180px;
+    text-align: left;
+    margin: auto;
+}
+.box .section .tablebox table tr th {
+    height: 30px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.box .section .tablebox table tr th img{
+    height: 100%;
+}
+
+.box .section .tablebox table tr .grey-th{
+    text-transform: uppercase;
+    color: gray;
+}
+.box .section .tablebox table tr .black-th{
+    text-transform: capitalize;
+    /* color: gray; */
+}
+.box .section .tablebox table tr .orangr-td{
+    text-transform: capitalize;
+    color: #FA965F;
+    font-weight: bold;
+}

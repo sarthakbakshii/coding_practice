@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <header>
+        <h1>Product Page</h1>
+        <select name="" id="sortByRating" onchange="sortByRating()">
+            <option value="" selected disabled hidden>Sort By Rating</option>
+            <option value="L"> low to high </option>
+            <option value="H"> high to low </option>
+        </select>
+        <select name="" id="sortByPrice" onchange="sortByPrice()">
+            <option value="" selected disabled hidden>Sort By price</option>
+            <option value="L"> low to high </option>
+            <option value="H"> high to low </option>
+        </select>
+        <a href="cart.html">
+        <button class="cartPage">
+            go to cart
+        </button>
+        </a>
+    </header>
+    
+    <div class="displayBox" id="displayBox">
+
+    </div>
+    
+</body>
+</html>
+<script src="product.js"></script>

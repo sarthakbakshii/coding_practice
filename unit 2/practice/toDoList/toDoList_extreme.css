@@ -1,0 +1,74 @@
+.container{
+    /* border: 1px solid; */
+    margin: 100px auto;
+    width: 1000px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.container .addBox{
+    height: 50px;
+    /* border: 1px solid;   */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    /* padding: 10px; */
+}
+.container .addBox .entryInput{
+    height: 30px;
+    padding-left: 10px;
+    width: 57%;
+}
+.container .addBox .addBtn{
+    height: 35px;
+    width: 37%;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.container .showBox{
+    /* height: 500px; */
+    /* border: 1px solid;   */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* padding: 10px; */
+}
+.container .showBox .showBox_ele{
+    width: 100%;
+    /* border: 1px solid; */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+.container .showBox .entryOutput{
+    height: 30px;
+    padding-left: 10px;
+    width: 57%;
+    
+
+}
+.green{
+    color: rgb(52, 230, 52);
+    height: 30px;
+    padding-left: 10px;
+    width: 57%;
+    display: flex;
+}
+.container .showBox .saveBtn,
+.container .showBox .dltBtn,
+.container .showBox .editBtn,
+.container .showBox .doneBtn{
+    height: 35px;
+    width: 9.5%;
+}

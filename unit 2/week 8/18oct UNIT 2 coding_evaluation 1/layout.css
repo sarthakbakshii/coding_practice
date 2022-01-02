@@ -1,0 +1,135 @@
+*{
+    margin: 0;padding: 0;
+}
+
+.sectionOne .container{
+    /* border: 1px solid; */
+    margin: 30px;
+    height: 400px;
+}
+.sectionOne .container .heading{
+    text-transform: uppercase;
+     font-family: 'Poppins', sans-serif;
+     word-spacing: 5px;
+     font-weight: bold;
+     letter-spacing: 2px;
+}
+.sectionOne .container .cardContainer{
+    /* border: 1px solid; */
+    margin: 25px auto;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 30px;
+    /* gap: ; */
+}
+.sectionOne .container .cardContainer .card{
+    border: 1px solid green;
+    border-radius: 5px;
+    height: 100%;
+    /* display: fl; */
+}
+.sectionOne .container .cardContainer .card .img{
+    /* border: 1px solid green; */
+    height: 55%;
+    background-image: url(https://via.placeholder.com/750x250);
+    /* border: 1px solid blue; */
+    background-size: cover;
+    background-position: center;
+}
+.sectionOne .container .cardContainer .card .imgcontent{
+    /* border: 1px solid green; */
+    font-family: 'Poppins', sans-serif;
+    height: 45%;
+    padding-left: 20px;
+    padding-right: 20px;
+    /* padding-top: 5%; */
+}
+
+.sectionOne .container .cardContainer .card .imgcontent .grayheading{
+    /* border: 1px solid green; */
+    margin-top: 10px;
+    color: gray;
+}
+.sectionOne .container .cardContainer .card .imgcontent h3{
+    text-transform: capitalize;
+    margin-top: 6px;
+}
+.sectionOne .container .cardContainer .card .imgcontent .achor{
+    margin-top: 10px;
+    color: blue;
+    font-weight: bold;
+}
+i{
+    font-size: 13px;
+}
+.section2{
+    margin-top: 20px; margin-bottom: 20px;padding-bottom: 20px;
+}
+.section2 .container{
+    /* border: 1px solid; */
+    margin: 30px;
+    height: 300px;
+}
+.section2 .container .heading{
+    text-transform: uppercase;
+     font-family: 'Poppins', sans-serif;
+     word-spacing: 5px;
+     font-weight: bold;
+     letter-spacing: 2px;
+}
+.section2 .container .cardContainer{
+    /* border: 1px solid; */
+    margin: 25px auto;
+    height: 80%;
+    display: grid;
+    /* grid-template-columns: repeat(3,1fr); */
+    grid-template-areas: 
+    "a b c"
+    "d e f";
+    gap: 30px;
+    /* gap: ; */
+}
+.section2 .container .cardContainer .card{
+    border: 1px solid green;
+    border-radius: 5px;
+    height: 80%;
+    /* width: 432px; */
+    padding: 15px;
+    font-family: 'Poppins', sans-serif;
+    /* display: fl; */
+}
+.section2 .container .cardContainer .card:nth-child(1){
+    grid-area: a ;
+}
+.section2 .container .cardContainer .card:nth-child(2){
+    grid-area: b;
+}
+.section2 .container .cardContainer .card:nth-child(3){
+    grid-area: c ;
+}
+.section2 .container .cardContainer .card:nth-child(4){
+    grid-area: d;
+}
+.section2 .container .cardContainer .card:nth-child(5){
+    grid-area: e;
+}
+.section2 .container .cardContainer .card:nth-child(6){
+    grid-area: f;
+}
+.section2 .container .cardContainer .card h3{
+    text-transform: capitalize;
+    /* width: 300px; */
+    /* border: 1px solid green; */
+    margin-top: 6px;
+}
+.section2 .container .cardContainer .card h4{
+    text-transform: capitalize;
+    /* width: 300px; */
+    margin-top: 6px;
+    color: rgba(0, 0, 0, 0.74);
+    /* border: 1px solid green; */
+}
+.section2 .container .cardContainer .card h4 i{
+    padding-left: 10px;
+}

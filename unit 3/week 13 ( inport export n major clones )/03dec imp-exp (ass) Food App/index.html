@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="nav">
+        <!-- <div class="logo">
+                desi kitchen 
+        </div>
+        <div class="catagory">
+               <a href="#"> <div class="item"> Search </div> </a>
+               <a href="#"> <div class="item"> Today Special </div> </a>
+               <a href="#"><div class="item"> Latest </div></a>
+        </div> -->
+    </nav>
+    <div class="searchBox">
+        <input type="text" id="nameInput">
+        <button id="searchBtn">Search</button>
+    </div>
+    <div class="debounceBox" id="debounceBox">
+        <!-- <div class="searchResBox" id="searchResBox" >
+            
+        </div> -->
+    </div>
+    <div class="display_resultblog" id="display_resultblog">
+        <!-- <div class="img">
+
+        </div>
+        <div class="dtl">
+            <h2>Food Name</h3>
+            <p>Catagory: </p>
+            <p></p>
+        </div> -->
+    </div>
+
+</body>
+</html>
+<script type="module">
+
+    import navbar from './components/navbar.js';
+    import {displaybox_big, empty_search_box} from './components/display.js';
+    import {searchFood} from './scripts/gettingInfo.js';
+    import {debounce,findName} from './scripts/debounce.js';
+    // import {searchByName, empty_search_box} from './scripts/domManupilation.js'
+
+    // window.addEventListener("load", () =>{
+    //     makeApiCall()
+    // })
+
+    // -------- navbar
+    const nav = document.getElementById("nav");
+    nav.innerHTML = navbar()
+
+
+    // ------------- search and debouncing
+    let bomd;
+    const nameInput = document.getElementById("nameInput");
+    nameInput.addEventListener("keyup", () => {
+        debounce(findName,400)
+    });
+
+    // const debounce = (func,delay) => {
+    //     clearTimeout(bomd);
+    //     bomd = setTimeout(() => {
+    //         func()
+    //     }, delay);
+    // }
+
+    // const debounceBox = document.getElementById("debounceBox");
+    // const findName = async () =>{
+    //     debounceBox.innerHTML = null;
+    //     let name = nameInput.value;
+    //     let foodArr = await searchFood(name);
+        
+    //     if(foodArr.meals == null){
+    //         console.log("no food")
+    //         debounceBox.innerHTML = null
+    //     }
+    //     else{
+    //         console.log(foodArr.meals);
+    //         foodArr.meals.map( a => {
+                
+    //             let searchResBox = document.createElement("div");
+    //             searchResBox.classList = "searchResBox";
+    //             searchResBox.innerHTML = `${a.strMeal}`;
+    //             debounceBox.append(searchResBox)
+    //         })
+            
+    //     }
+    // }
+    
+
+    // -------------------- get result on btn cick
+    const display_resultblog = document.getElementById("display_resultblog");
+    const searchBtn = document.getElementById("searchBtn");
+
+    searchBtn.addEventListener("click",async () =>{
+
+        name = nameInput.value;
+        let data = await searchFood(name)
+        console.log(data)
+        empty_search_box();
+        display_resultblog.innerHTML = displaybox_big(data.meals[0])
+
+    })
+
+</script>

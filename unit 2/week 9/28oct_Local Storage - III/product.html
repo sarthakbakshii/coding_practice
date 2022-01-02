@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product page</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        header{
+            /* border: 1px solid; */
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding-left: 50px;
+            color: #fff;
+            font-size: 30px;
+            font-family: sans-serif;
+            background-color: rgb(155, 147, 120);
+        }
+        .displayCard{
+            /* border: 1px solid; */
+            width: 90%;
+            margin:50px auto;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+
+        }
+        .card{
+             /* border: 1px solid; */
+             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+             display: flex;
+             height: 130px;
+             padding: 10PX;
+        }
+        .card .cardTop{
+            /* border: 1px solid; */
+            width: 60%;
+            display: flex;
+        }
+        .card .cardBottom{
+            /* border: 1px solid; */
+            width: 50%;
+            padding-left: 10px;
+        }
+        .card h1{
+            font-size: 25px;
+        }
+        .card .img{
+            max-height: 100%;
+            max-width: 100%;
+            margin: auto;
+            /* height: */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        E-commerce
+    </header>
+
+    <div class="displayCard" id="displayCard"></div>
+</body>
+</html>
+
+<script>
+    // --------------------------------------------- storage
+        var itemListArr = JSON.parse(localStorage.getItem("ecom_ls_test_project_1_itemList")) || [];
+
+    // --------------------------------------------- main function
+    function emptyDisplayCard() {
+        document.getElementById("displayCard").innerHTML = "";
+    }
+
+    // --- display card
+        window.addEventListener("load", (e) => display() );
+
+    // --- display()
+        function display() {
+            emptyDisplayCard();
+            var displayCard = document.getElementById("displayCard");
+
+            itemListArr.map((item, index) => {
+                var card = document.createElement("div");
+                card.id = "card";
+                card.classList = "card";
+                card.innerHTML = `<div class="cardTop">
+                                     <img src="${item.pic}" class="img">
+                               </div>
+                                <div class="cardBottom">
+                                    <h1> ${item.name} </h1>
+                                    <p> Price : ${item.price} </p>
+                                </div>
+                            `;
+
+                displayCard.append(card)
+            })
+
+
+
+        }
+</script>

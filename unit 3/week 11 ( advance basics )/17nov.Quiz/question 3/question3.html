@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB app</title>
+    <style>
+        body{
+            display: flex;
+            gap: 100px;
+        }
+        .cont{
+            border: 1px solid;
+            display: flex;
+            border-radius: 20px;
+            width: 200px;
+            flex-direction: column;
+            padding: 20px 20px 20px 20px ;
+        }
+        .cont .box{
+            width: 100%;
+            height: 60px;
+            /* border: 1px solid; */
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+        .cont .box:first-child{
+            border: 1px solid;
+            height: 10px;
+        }
+        .mobile{
+            border: 1px solid;
+            display: flex;
+            border-radius: 10px;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            gap: 10px;
+            height: 600px;
+            flex-direction: column;
+            padding: 10px 15px 10px 15px ;
+            background-color: #71797E;;
+        }
+        .mobile .cam{
+            /* border: 1px solid; */
+            height: 10px;
+            display: flex;
+            gap: 20px;
+            width: 100px;
+        }
+        .mobile .screen{
+            border: 1px solid;
+            height: 550px;
+            flex-direction: column;
+            display: flex;
+            padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
+            gap: 10px;
+            background-color: white;
+        }
+        .mobile .bott{
+            border: 1px solid rgba(0, 0, 0, 0.404);
+            height: 38px;
+            width: 38px;
+            border-radius: 50%;
+            background-image: radial-gradient(circle at center, grey 0, rgba(0, 0, 0, 0.336) 100%);
+            /* radial-gradient(circle at center, red 0, blue, green 100%) */
+        }
+        .mobile .cam .camCutout{
+             border: 1px solid;
+             height: 80%;
+             background-color: black;
+             width: 8px;
+             border-radius: 50%;
+        }
+        .mobile .cam .speaker{
+             border: 1px solid;
+             height: 80%;
+             width: 70%;
+             background-color: rgba(0, 0, 0, 0.493);
+             border-radius: 5px;
+        }
+         .mobile .screen .box{
+             /* border: 1px solid red; */
+             height: 60px;
+         }
+          .box .btn{
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
+        }
+         .box .btn:hover{
+            background-color: rgb(151, 151, 151);
+            color: white;
+            outline: none;
+            border: none;
+            
+        }
+        .tab{
+            width: 800px;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 20px;
+        }
+        .tab .screen{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'popins',sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mobile">
+        <div class="cam">
+            <div class="camCutout"></div>
+            <div class="speaker"></div>
+
+        </div>
+        <div class="screen">
+            <div class="box">
+                <button class="btn" id="obj" value="obj">Objects</button>
+            </div>
+            <div class="box">
+                <button class="btn" id="arr" value="arr">Arrays</button>
+            </div>
+            <div class="box">
+                <button class="btn" id="fun" value="fun">Functions</button>
+            </div>
+            <div class="box">
+                <button class="btn" id="str" value="str">Strings</button>
+            </div>
+            <div class="box">
+                <button class="btn" id="num" value="num">Numbers</button>
+            </div>
+            <div class="box">
+                <button class="btn" id="null" value="null">null</button>
+            </div>
+            <div class="box">
+                <button class="btn" id="und" value="und">undefined</button>
+            </div>
+
+        </div>
+        <div class="bott">
+
+        </div>
+    </div>
+<div class="mobile tab">
+    <div class="cam">
+        <div class="camCutout"></div>
+        <div class="speaker"></div>
+
+    </div>
+    <div class="screen" id="screen">
+        <h1>click on these buttons</h1>
+
+    </div>
+    <div class="bott">
+
+    </div>
+</div>
+    
+</body>
+</html>
+<script>
+   function emptyData() {
+       document.getElementById("screen").innerHTML = ""
+       
+   }
+   document.getElementById("obj").addEventListener("click",() =>{
+       emptyData();
+       document.getElementById("screen").innerHTML =`
+       <h1> Objects </h1>
+       <ul>
+            <li>JavaScript is designed on a simple object-based paradigm</li>
+                  <li>An object is a collection of properties, and a property is an association between a name (or key) and a value.</li>
+             <li>A property's value can be a function, in which case the property is known as a method.</li>
+             <li>n addition to objects that are predefined in the browser, you can define your own objects.</li>
+             <li>This chapter describes how to use objects, properties, functions, and methods, and how to create your own objects.</li>
+        </ul>
+       `;
+
+   });
+   document.getElementById("arr").addEventListener("click", () => {
+        emptyData();
+        document.getElementById("screen").innerHTML = `
+       <h1> Array </h1>
+       <ul>
+            <li>The JavaScript Array class is a global object that is used in the construction of arrays; which are high-level, list-like objects</li>
+            <li>Arrays are list-like objects whose prototype has methods to perform traversal and mutation operations.</li>
+            <li>Neither the length of a JavaScript array nor the types of its elements are fixed. </li>
+            <li>Since an array's length can change at any time, and data can be stored at non-contiguous locations in the array, JavaScript arrays are not guaranteed to be dense; this depends on how the programmer chooses to use them.</li>
+            <li>In general, these are convenient characteristics; but if these features are not desirable for your particular use, you might consider using typed arrays.</li>
+        </ul>
+       `;
+
+    });
+    document.getElementById("fun").addEventListener("click", () => {
+            emptyData();
+            document.getElementById("screen").innerHTML = `
+       <h1> Function </h1>
+       <ul>
+            <li>Functions created with the Function constructor do not create closures to their creation contexts</li>
+            <li>hey always are created in the global scope</li>
+            <li>When running them, they will only be able to access their own local variables and global ones, not the ones from the scope in which the Function constructor was created.</li>
+            <li>While this code works in web browsers, f1() will produce a ReferenceError in Node.js, as x will not be found.</li>
+            <li>This is because the top-level scope in Node is not the global scope, and x will be local to the module</li>
+        </ul>
+       `;
+
+        });
+    document.getElementById("str").addEventListener("click", () => {
+                emptyData();
+                document.getElementById("screen").innerHTML = `
+       <h1> String </h1>
+       <ul>
+            <li>Strings are useful for holding data that can be represented in text form.</li>
+            <li>Strings can be created as primitives, from string literals, or as objects, using the String() constructor</li>
+            <li>In C, the strcmp() function is used for comparing strings. In JavaScript, you just use the less-than and greater-than operators</li>
+            <li>There are two ways to access an individual character in a string. The first is the charAt() method</li>
+            <li>String primitives and String objects also give different results when using eval()</li>
+        </ul>
+       `;
+
+    });
+    document.getElementById("und").addEventListener("click", () => {
+            emptyData();
+            document.getElementById("screen").innerHTML = `
+       <h1> Undefined </h1>
+       <ul>
+            <li>undefined is a property of the global object.</li>
+            <li>That is, it is a variable in global scope. The initial value of undefined is the primitive value undefined.</li>
+            <li>You can use undefined and the strict equality and inequality operators to determine whether a variable has a value. In the following code, the variable x is not initialized, and the if statement evaluates to true.</li>
+            <li>A variable that has not been assigned a value is of type undefined.</li>
+            <li>A method or statement also returns undefined if the variable that is being evaluated does not have an assigned value.</li>
+        </ul>
+       `;
+
+        });
+    document.getElementById("null").addEventListener("click", () => {
+            emptyData();
+            document.getElementById("screen").innerHTML = `
+       <h1> Null </h1>
+       <ul>
+            <li>The value null represents the intentional absence of any object value. </li>
+            <li>It is one of JavaScript's primitive values and is treated as falsy for boolean operations.</li>
+            <li>The value null is written with a literal: null. null is not an identifier for a property of the global object.</li>
+            <li>A variable that has not been assigned a value is of type undefined.</li>
+            <li>A method or statement also returns undefined if the variable that is being evaluated does not have an assigned value.</li>
+        </ul>
+       `;
+         });
+
+</script>

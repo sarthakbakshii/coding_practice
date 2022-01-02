@@ -1,0 +1,120 @@
+*{
+
+}
+body{
+    background: #0E0E0E;
+}
+
+.container{
+    height: 550px;
+    width:1000px;
+    margin:80px auto;
+    border: 1px solid;
+    background: #272727;
+}
+.cont-inside{
+    /* border: 1px solid; */
+    width:88%;
+    height: 92%;
+    margin-left: 6%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+.box1{
+    height: 100%;
+    /* border: 1px solid; */
+    width:58%;
+    display: inline-block;
+    vertical-align: top;
+}
+.box2{
+    height: 100%;
+    /* border: 1px solid; */
+    width:38%;
+    display: inline-block;
+    margin-left: 3%;
+}
+
+.box1 .imgbox{
+    /* border: 1px solid; */
+    height:75%;
+    border-radius: 10px;
+    background-image: url(https://c.ndtvimg.com/2021-10/n8oto08g_glenn-maxwell-rcb-bcciipl_240x180_12_October_21.jpg?output-quality=80&downsize=1060:*);
+    background-size: cover;
+    background-position: top center;
+}
+.box1 .news{
+    /* border:1px solid red; */
+    height: 20%;
+    align-items: top;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 39px;
+    margin-top: 2.5%;
+    color: #D4D4D4;
+}
+.box1 .news h1{
+    /* border: 1px solid pink; */
+    height: 100%;
+    margin-top: 0%;
+    font-size: 30px;
+}
+
+.box2 .sidebox{
+    /* border:1px solid; */
+    width: 100%;
+    height: 25%;
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center; */
+}
+.box2 .sidebox .content{
+    /* border:1px solid red; */
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+.box2 .sidebox .content .imgbox{
+     /* border:1px solid red; */
+     width:40%;
+     border-radius: 10px;
+     background-size: cover;
+     background-position: top center;
+
+}
+.box2 .sidebox .content .imgbox1{
+    background-image: url(https://c.ndtvimg.com/2021-10/a607qm5_narine-bcci-ipl_240x180_11_October_21.jpg?output-quality=80&downsize=280:*);
+}
+.box2 .sidebox .content .imgbox2{
+    background-image: url(https://c.ndtvimg.com/2021-10/jaks90u8_virat-kohli-bcciipl-630_240x180_12_October_21.jpg?output-quality=80&downsize=280:*)
+}
+.box2 .sidebox .content .imgbox3{
+    background-image: url(https://c.ndtvimg.com/2021-10/ishimlec_csk_240x180_11_October_21.jpg?output-quality=80&downsize=280:*)
+}
+.box2 .sidebox .content .imgbox4{
+    background-image: url(https://c.ndtvimg.com/2021-10/5iipug88_harshal-patel-bcci-ipl_240x180_11_October_21.jpg?output-quality=80&downsize=280:*)
+}
+
+.box2 .sidebox .content .imgtext{
+     /* border:1px solid red; */
+     width:55%;
+     
+     font-size: 20px;
+
+}
+
+.box2 .sidebox .content .imgtext p{
+    display: inline-block;
+    vertical-align: top;
+    /* border:1px solid; */
+    height: 80%;
+    margin-top: 0px;
+    color: #D4D4D4;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+}
+#hr {
+    color: rgb(102, 104, 104);
+    background-color: rgb(104, 104, 104);
+}

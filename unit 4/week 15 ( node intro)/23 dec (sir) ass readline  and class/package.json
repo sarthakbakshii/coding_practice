@@ -1,0 +1,11 @@
+{
+  "name": "modules_and_require",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index"
+  },
+  "author": "",
+  "license": "ISC"
+}

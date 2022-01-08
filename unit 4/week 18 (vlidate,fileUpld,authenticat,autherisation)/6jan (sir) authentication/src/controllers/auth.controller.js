@@ -43,7 +43,7 @@ const login = async (req, res) => {
     if (!user)
       return res
         .status(400)
-        .send({ message: "Either Email or Password is incorrect" });
+        .send({ message: "Either Email or Password is incorrect [-- if (!user) --]" });
 
     // if user found then try to match the password provided with the password in db
     const match = user.checkPassword(req.body.password);
@@ -52,7 +52,7 @@ const login = async (req, res) => {
     if (!match)
       return res
         .status(400)
-        .send({ message: "Either Email or Password is incorrect" });
+        .send({ message: "Either Email or Password is incorrect [-- if (!match) --]" });
 
     // stateful => session on the server => cookie on the browser
     // stateless => nothing stored on the server

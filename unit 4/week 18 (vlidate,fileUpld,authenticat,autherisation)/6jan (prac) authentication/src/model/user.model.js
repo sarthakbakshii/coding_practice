@@ -1,6 +1,24 @@
+/* here we are creating a middleware that say before you save 
+collection through this schema, encrytp the password
+
+userSchema.pre("save", function(next) { 
+        inside this we are checking if password is modified,
+        i.e, if allready hashed, then do nothing
+
+        else hash it.
+ })
+
+ so we hash it using library bcrypt
+         npm install bcrypt 
+*/
+
+
+/*   when login, if user exist, we need to know if password matches or not
+so we will not create a middleware this time we will make a prototype to
+compare the password
+*/
 const mongoose  = require("mongoose");
 const bcrypt = require("bcryptjs");
-// npm install bcrypt
 
 const userSchema = new mongoose.Schema(
   {
@@ -12,40 +30,28 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-/* NOTE :- there are two ways of creating user
 
-1) user = User.create(req.body) 
-i.e, directly create the user
+userSchema.pre('save',  function (next) {
+      console.log('just before saving')
 
-2) user = new User();     "create object"
-user.email = "sdfgefgv";  "put the value"
-user.save()               "save the object"
-
+       if( ! this.isModified("password"))   return next();
+        
+      const hash = bcrypt.hashSync(this.password, 8);  //------- encrytp and give new password
+      this.password = hash;
+      next()
+});
+/*   when login, if user exist, we need to know if password matches or not
+so we will not create a middleware this time we will make a prototype to
+compare the password
 */
-
-// HOOK : pre == before,,
-// before you save the document we 
-// want to do something with it
-
-// (4) we will hash password for user (encrypt)
-// this will act as a middleware
-userSchema.pre("save", function(next){
-    // either we are creating a user or we are updating a user
-
-    // ----- check if pass is modified or not
-    if( ! this.isModified("password")){
-        return next();
-    }
-
-    bcrypt.hash( this.password, 8, function(err, hash) {
-        // -- after completng the hashing
-        if(err) {   //--- if there is an error
-            return next(err)   //----go on next with error
-        } //--- if no error,
-        this.password = hash  //--- hassh the password
-        return next()  // and return to next
-    });
-})
+// userSchema.methods.checkPassword = function(password){
+//       const match = bcrypt.compareSync(password, this.password);
+//       return match;
+// }
+userSchema.methods.checkPassword = function (password) {
+  return bcrypt.compareSync(password, this.password);
+};
+//  as ita prototype of userSchema no need to export it , just directly call it anywhere
 
 
 const User = new mongoose.model("user",userSchema);

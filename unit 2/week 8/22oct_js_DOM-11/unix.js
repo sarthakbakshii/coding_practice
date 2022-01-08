@@ -22,11 +22,16 @@ btn.addEventListener('click', (e) =>{
         const mid = document.createElement("div");
         const bottom = document.createElement("div");
 
-        top.setAttribute("class","top");
-        mid.setAttribute("class","mid");
+        // top.setAttribute("class","top");
+        // mid.setAttribute("class","mid");
+        // bottom.setAttribute("class","bottom");
+        top.classList = "top";
+        mid.className = "mid";
         bottom.setAttribute("class","bottom");
     
-        document.querySelector(".container").append(top,mid,bottom) 
+        // document.querySelector(".container").append(top,mid,bottom)
+        container.append(top,mid,bottom)
+        
     // .container > child ---- end
 
     // output : .container > { .top , .mid , .bottom }

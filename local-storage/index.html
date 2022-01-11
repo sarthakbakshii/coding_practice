@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont{
+            border: 1px solid;
+            width: 230px;
+          
+        }
+        .cont h5{
+          border: 1px solid;
+          margin: 10px;
+          padding: 5px 10px 10px 10px ;
+        }
+    </style>
+</head>
+<body>
+     <input type="text" id="value">
+     <button id="btn">submit</button>
+     <div class="cont" id="cont">
+         <!-- <h5>idsgivgdfsiv</h5>
+         <h5>fervcerfv</h5> -->
+     </div>
+</body>
+</html>
+<script>
+    const dataArray = JSON.parse( localStorage.getItem("ashsh_bakchod") ) || []
+
+    const btn = document.getElementById("btn");
+    const val =  document.getElementById("value");
+    
+    window.addEventListener("load", function () {
+         display(dataArray)
+    })
+
+
+    btn.addEventListener("click", function () {
+        const txt =  val.value;
+
+        dataArray.push(txt)
+        localStorage.setItem("ashsh_bakchod", JSON.stringify(dataArray))
+        display(dataArray)
+    })
+
+    function display(dataArray){
+        const cont = document.getElementById("cont");
+        cont.innerHTML = null
+
+        dataArray.map( (item,index) =>{
+
+                const h = document.createElement("h5");
+                h.classList = "hsghsl";
+                h.innerHTML = item;
+                cont.append(h) 
+
+                const deletBtn = document.createElement("button");
+                deletBtn.innerHTML = "delete";
+                deletBtn.addEventListener("click", () =>{
+                        deleteEle(index)
+                })
+                h.append(deletBtn)
+              
+               
+        })
+    }
+
+    function deleteEle(index) {
+        alert(index);
+        dataArray.splice(index,1)
+        localStorage.setItem("ashsh_bakchod", JSON.stringify(dataArray))
+        display(dataArray)
+    }
+
+
+</script>
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inputContainer{
+            border: 1px solid;
+            width: 300px;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            align-items: center;
+            margin: auto;
+            margin-top: 30px;
+            justify-content: center;
+
+        }
+        .inputContainer input{
+            width: 100%;
+            height: 25px;
+        }
+
+        .displayContainer{
+            /* border: 1px solid; */
+            margin: auto;
+            margin-top: 50px;
+            width: 80%;
+            font-family: sans-serif;
+            gap: 4px;
+
+            
+            display: grid;
+            gap: 4px;
+            align-items: center;
+            justify-items: center;
+
+            grid-template-columns: repeat(3,1fr);
+                    
+        }
+        .card{
+            border: 1px solid;
+            width: 300px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card .buttonBox{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .card .buttonBox button{
+            width: 40%;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="inputContainer">
+        <input type="text" id="cource" 
+        placeholder="Enter Course">
+        <input type="text" id="courceDtl"
+         placeholder="Enter Course details">
+        <input type="button" value="submit" id="submit">
+    </div>
+
+    <div class="displayContainer" id="displayContainer">
+
+    </div>
+</body>
+</html>
+<script>
+    var storageCource = [];
+     var storageCourseDtl = [];
+
+    var submit = document.getElementById("submit")
+    submit.addEventListener("click", function () {
+        var cource = document.getElementById("cource").value;
+        var courceDtl = document.getElementById("courceDtl").value;
+        
+        storageCource.push(cource)
+        storageCourseDtl.push(courceDtl)
+
+        displaycard(storageCource, storageCourseDtl)
+        
+    })
+
+    function  displaycard(arr1, arr2) {
+        var displayContainer = document.getElementById("displayContainer");
+        displayContainer.innerHTML = "";
+
+        for(var i = 0 ; i < arr1.length ; i++){
+
+            var card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `<h2> ${arr1[i]}</h1>
+                                <p> ${arr2[i]}</p>
+                                <div class="buttonBox">
+                                    <button> DETAILS</button>
+                                    <button> APPLY </button>
+                                </div>`;
+
+            displayContainer.append(card);
+        }
+    }
+
+</script>

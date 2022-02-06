@@ -38,14 +38,19 @@ router.get("/allUser", async (req, res) =>{
 });
 router.post("/addUser", async (req, res) =>{
     try {
+        console.log(req.body)
         const user = await User.create(req.body);
         return res.send(user)
         
     } catch (e) {
-        return res.status(500).send({error : e.message})
+        console.log({error : e.message})
+        
+        return res.status(500)
+        .send({error : e.message})
     }
 
 });
+
 
 
 

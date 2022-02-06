@@ -1,0 +1,50 @@
+.displayBox{
+    /* border: 1px solid; */
+    padding: 20px;
+}
+.displayBox .inputsection{
+    /* border: 1px solid; */
+    display: flex;
+    width: 600px;
+    gap: 10px;
+    margin: auto;
+}
+.displayBox .inputsection .prName{
+    width: 230px;
+    padding: 5px;
+}
+.displayBox .inputsection button{
+    width: 100px;
+    /* padding: 5px; */
+}
+.showBox{
+    padding: 20px;
+    /* border: 1px solid; */
+    display: flex;
+    width: 600px;margin: auto;
+    flex-direction: column;
+    gap: 10px;
+}
+.showBox .singleItem{
+    /* border: 1px solid; */
+    width: 600px;
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.showBox .singleItem .red{
+    color: red;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.showBox .singleItem .green{
+    color: green;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+.showBox .singleItem .blue{
+    color: blue;
+    font-weight: 400;
+    text-transform: capitalize;
+}

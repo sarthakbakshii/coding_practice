@@ -1,5 +1,5 @@
 const { connect } = require("./config/db");
-const {app} = require("./index");
+const app = require("./index");
 
 app.listen( 2345, async () =>{
     try {

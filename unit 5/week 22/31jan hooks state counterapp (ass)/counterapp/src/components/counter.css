@@ -1,0 +1,11 @@
+.flex{
+    /* border: 1px solid; */
+    width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.flex button{
+    width: 100px;
+    height: 35px;
+}

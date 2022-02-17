@@ -1,0 +1,39 @@
+.todoBox{
+     padding :  20px ;
+            textAlign :  left ;
+            width :  80% ;
+            margin :   50px auto ;
+            padding: 40px;
+            /* border :  1px solid  */
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.todoBox .container{
+    /* border: 1px solid; */
+    display: grid;
+    
+    /* place-items:  center; */
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    justify-content: center;
+    /* align-items: center; */
+}
+.todoBox .container .card{
+      /* border: 1px solid; */
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      /* width: 300px; */
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.todoBox .container .card:hover{
+    background-color: rgb(238, 238, 238);
+}
+.todoBox .container .card a{
+    text-decoration: none;
+    text-transform: capitalize;
+}
+select{
+    margin-left: 30px;
+    font-size: 15px;
+}

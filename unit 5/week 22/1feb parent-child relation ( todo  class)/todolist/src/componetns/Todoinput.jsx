@@ -15,6 +15,7 @@ export const Todoinput = ({handleClick}) =>{
                      console.log(e.target.value);
                       setText(e.target.value)
              }} />
+             
              <button onClick={() => { handleClick(text); resetInputField()} } >
              Add todo</button>
         </div>

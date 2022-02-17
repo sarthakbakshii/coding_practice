@@ -1,0 +1,25 @@
+.detail{
+     padding :  20px ;
+            text-align :  left ;
+            width :  80% ;
+            margin :   50px auto ;
+            padding: 40px;
+            /* border :  1px solid  */
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.flex{
+     display: flex;
+     justify-content: space-around;
+     cursor: pointer;
+}
+.TD2{
+     width: 300px;
+}
+.TD3{
+     width: 760px;
+}
+
+/* ---------------------EDIT JSX */
+.inputBox{
+   width: 100%  
+}

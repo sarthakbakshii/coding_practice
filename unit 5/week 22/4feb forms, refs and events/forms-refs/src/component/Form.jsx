@@ -3,8 +3,8 @@ import { useState } from "react"
 export const Form = () =>{
 
     const [ FormData, setFormDAta] = useState({
-        userName : "",
-        age : ""
+        userName : "",    
+        age : ""          
     });
 
     const handleChange = (e) =>{

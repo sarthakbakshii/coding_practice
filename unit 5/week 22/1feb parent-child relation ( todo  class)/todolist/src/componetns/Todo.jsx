@@ -7,9 +7,9 @@ import {v4 as uuid} from 'uuid';
 export const Todo = () =>{
     const [todos, setTodos] = useState([])
 
-    const handleClick = (text) =>{
+    const handleClick = (a) =>{
         const payload = {
-            title : text,
+            title : a,
             id: uuid(),
             status: false
         }

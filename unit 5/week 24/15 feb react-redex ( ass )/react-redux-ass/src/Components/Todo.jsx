@@ -8,6 +8,7 @@ import "./Todo.css"
 
 export const Todo = () =>{
       const todo = useSelector( (store) => store.todos );
+      
       console.log("line 11",todo);
 
        const dispatch = useDispatch()

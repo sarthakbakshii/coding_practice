@@ -1,0 +1,13 @@
+.todo,
+.counter{
+    /* border: 1px solid; */
+    width: 400px;
+    margin: auto;
+}
+
+.countBox{
+    font-size: 50px;
+    font-weight: bolder;
+    
+
+}

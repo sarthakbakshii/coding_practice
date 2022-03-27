@@ -1,0 +1,25 @@
+.todoInput{
+    width: 500px;
+    /* border: 1px solid; */
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto;
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+    flex-direction: column;
+    margin-top: 40px;
+    background-color: #b3cdd171;
+background-image: linear-gradient(315deg, #b3cdd16e 0%, #9fa4c467 74%);
+ animation: myentry 1.5s;
+   
+}
+@keyframes myentry {
+    from {  width: 0px;}
+    to   {width: 500px;}
+}
+
+.top{ display: flex; justify-content: center; align-items: center; gap:10px}
+.topic{ width: 75%; height: 36px;padding-left: 10px;box-sizing: border-box; }
+.submit { width: 23%; height: 36px;}
+.des{ width: 100%; padding-left: 10px;box-sizing: border-box; }

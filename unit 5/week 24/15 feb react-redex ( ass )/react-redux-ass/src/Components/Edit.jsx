@@ -110,11 +110,9 @@ export const Edit = () =>{
                                             onChange={(e) =>{
                                                  console.log(  e.target.value );
                                                  if( e.target.value == "on" ){
-                                                     e.target.value = "off"
                                                      setSpecificData( {...SpecificData, status : false  })
                                                  }
                                                  else if( e.target.value == "off" ){
-                                                     e.target.value = "on"
                                                      setSpecificData( {...SpecificData, status : true  })
                                                  }
                                                  
@@ -125,6 +123,7 @@ export const Edit = () =>{
                                             name="status"
                                             type="switch"
                                             id="custom-switch"
+                                            value={SpecificData.status?"on":"off"}
                                             label={SpecificData.status?"done":"not done"}
                                         /> 
                                 </td>

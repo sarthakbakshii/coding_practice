@@ -34,10 +34,11 @@ const reducer = (store = initialState , { type , payload}) =>{
             }
 
 
-            let sorted = JSON.parse(JSON.stringify(store.todos))
+            let sorted = JSON.parse(JSON.stringify(store.todos));
+
              sorted.sort(function(a, b) {
                     return compareStrings(a.title, b.title);
-                })
+                });
 
             console.log("reducer sorted 1", sorted)
             // store.todos = sorted

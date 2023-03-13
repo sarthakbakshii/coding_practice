@@ -1,0 +1,12 @@
+*{
+    box-sizing: border-box;
+}
+.input{
+    width: 400px;
+    height: 30px;
+    padding-left: 10px;
+}
+button{
+    height: 30px;
+    width: 100px;
+}

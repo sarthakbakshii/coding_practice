@@ -1,0 +1,15 @@
+.App {
+  /* text-align: center; */
+  background-color: #F9F9FA;
+  height: 99vh;border: 1px solid transparent;
+}
+
+.specificItem{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.img{
+  height: 60px;
+  width: 60px;
+}

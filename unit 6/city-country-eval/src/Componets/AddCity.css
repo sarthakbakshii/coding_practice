@@ -1,0 +1,29 @@
+.AddCity{
+    /* border: 1px solid; */
+    width: 350px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+h2{
+    text-align: left;
+}
+.input{
+    width: 100%;
+    box-sizing: border-box;
+    height: 30px;
+    padding-left: 20px;
+}
+
+button{
+    width: 100%;
+    margin-top: 30px;
+    height: 30px;
+    border: 1px solid;
+    outline: none;
+    border-radius: 10px;
+}

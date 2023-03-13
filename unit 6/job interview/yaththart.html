@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        #submit {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #submit:hover {
+            background-color: #45a049;
+        }
+
+        #container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            width: 30%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div id="container">
+        <h2>WIFY JSON form validation</h2>
+     
+            <form action="/action_page.html" id="form">
+                <!-- <label for="user_name">Name</label>
+                <input type="text" id="user_name" name="user_name" placeholder="Your name.." required>
+
+                <label for="mobile_no">Phone No.</label>
+                <input type="number" id="mobile_no" name="mobile_no" placeholder="Your Phone Number.." required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <input type="submit" value="Submit" class="submit" required> -->
+            </form> 
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    // --------------------------- json database
+    let validations = [
+        {
+            "key": "user_name",
+            "label": "Name",
+            "type": "text",
+            "maxLength": "50"
+        },
+        {
+            "key": "mobile_no",
+            "label": "Mobile number",
+            "type": "number",
+            "maxLength": "10"
+        },
+        {
+            "key": "email",
+            "label": "Email",
+            "type": "email"
+        }
+    ]
+
+    let test = JSON.parse(JSON.stringify( validations ) )
+
+    let [type_Number_object] = test.filter(a => a.type == "number");
+    let [type_Text_object] = test.filter(a => a.type == "text");
+    let [type_email_object] = test.filter(a => a.type == "email");
+
+    // ------------------- on load event 
+
+    const form = document.getElementById("form")
+
+    window.addEventListener( "load" , () =>{
+        createForm();
+    });
+
+
+    function createForm() {
+        
+        let user_name_box = document.createElement("div");
+        user_name_box.innerHTML = 
+          `<label for="${type_Text_object.type}">
+             ${type_Text_object.label}
+          </label>
+
+          <input type="${type_Text_object.type}" 
+          id="${type_Text_object.key}" 
+          name="${type_Text_object.key}"
+          placeholder="Your name.." 
+          required>`;
+
+        let mobile_no_box = document.createElement("div");
+        mobile_no_box.innerHTML =
+            `<label for="${type_Number_object.type}">
+             ${type_Number_object.label}
+          </label>
+
+          <input type="${type_Number_object.type}" 
+          id="${type_Number_object.key}" 
+          name="${type_Number_object.key}"
+          maxLength="${ Number(type_Number_object.maxLength) }"
+          placeholder="Your modile number.." 
+          required>`;
+
+          
+        
+
+          let email_box = document.createElement("div");
+          email_box.innerHTML =
+            `<label for="${type_email_object.type}">
+             ${type_email_object.label}
+          </label>
+
+          <input type="${type_email_object.type}" 
+          id="${type_email_object.key}" 
+          name="${type_email_object.key}"
+          placeholder="Your email.." 
+          required>`;
+
+          let submit = document.createElement("button");
+          submit.innerHTML = "submit"
+          submit.id = "submit"
+
+
+        form.append(user_name_box , mobile_no_box , email_box , submit)
+    }
+    
+    form.addEventListener("submit" , (e) =>{
+        e.preventDefault()
+
+        let user_name = document.getElementById("user_name");
+        let mobile_no = document.getElementById("mobile_no");
+        let email = document.getElementById("email");
+
+        console.log( user_name.value ,  mobile_no.value ,  email.value)
+        
+    })
+
+    // ---------------- form validation
+
+    let mobile = document.getElementById("mobile_no") 
+    mobile.addEventListener('keyup', () =>{
+        console.log(mobile.value)
+    });
+
+    function formValidation( name , mobile , mail){
+        if( name == "" || mobile == "" || mail == ""){
+                alert("can't left any field empty")
+        }
+    }
+
+   
+
+
+
+</script>

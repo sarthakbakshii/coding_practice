@@ -3,92 +3,92 @@ let data = ["one","two"];
 
 // ===================== callback
 
-// function one() {
-//     setTimeout(() => {
-//         data.forEach(a => console.log(a))
-//     }, 2000);
-// }
-// function two( callback ) {
+function one() {
+    setTimeout(() => {
+        data.forEach(a => console.log(a))
+    }, 2000);
+}
+function two( callback ) {
 
-//     setTimeout(() => {
-//         data.push("three");
-//         callback();
+    setTimeout(() => {
+        data.push("three");
+        callback();
 
-//     }, 4000);
-// }
+    }, 4000);
+}
 
-// two( one )
+two( one )
 
 
 // ============= promise with then - catch
 
-// function one() {
-//     setTimeout(() => {
-//         data.forEach(a => console.log(a))
-//     }, 1000);
-// }
+function one() {
+    setTimeout(() => {
+        data.forEach(a => console.log(a))
+    }, 1000);
+}
 
-// function two() {
+function two() {
 
-//     return new Promise( (resolve, reject) =>{
-//             setTimeout(() => {
-//                 data.push("three");
+    return new Promise( (resolve, reject) =>{
+            setTimeout(() => {
+                data.push("three");
                 
-//                 if(false){
-//                     resolve()
-//                 }
-//                 else{
-//                     reject("error")
-//                 }
+                if(false){
+                    resolve()
+                }
+                else{
+                    reject("error")
+                }
 
-//             }, 2000);
-//     })
+            }, 2000);
+    })
 
     
-// }
+}
 
-// two()
-// .then( one )
-// .catch( e => console.log(e))
+two()
+.then( one )
+.catch( e => console.log(e))
 
 // =========================== promise with async await
 
-// function one() {
-//     setTimeout(() => {
-//         data.forEach(a => console.log(a))
-//     }, 1000);
-// }
+function one() {
+    setTimeout(() => {
+        data.forEach(a => console.log(a))
+    }, 1000);
+}
 
-// function two() {
+function two() {
 
-//     return new Promise( (resolve, reject) =>{
-//             setTimeout(() => {
-//                 data.push("three");
+    return new Promise( (resolve, reject) =>{
+            setTimeout(() => {
+                data.push("three");
                 
-//                 if(false){
-//                     resolve()
-//                 }
-//                 else{
-//                     reject("error")
-//                 }
+                if(false){
+                    resolve()
+                }
+                else{
+                    reject("error")
+                }
 
-//             }, 2000);
-//     })
+            }, 2000);
+    });
 
     
-// }
+}
 
-// async function start(){
-//     try {
-//         await two()
+async function start(){
+    try {
+        await two()
 
-//         one()
+        one()
 
-//     } catch (e) {
-//         console.log(e)
-//     }
-// }
-// start()
+    } catch (e) {
+        console.log(e)
+    }
+}
+start()
 
  arr = [2, 7, 4, 0, 9, 5, 1, 3], s = 20
 

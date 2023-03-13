@@ -1,0 +1,54 @@
+.Navbar{
+    /* border: 1px solid; */
+    width: 250px;
+    height: 100vh;
+   /* background-image: url(../../../public/dashboard.jpg);
+   background-size: cover;
+   background-position: left; */
+   display: flex;
+   justify-content: flex-start;
+   gap: 30px;
+   background-color: #30303A;
+   flex-direction: column;
+}
+
+.Navbar .logo{
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    font-family: sans-serif;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.Navbar .liList{
+    font-family: sans-serif;
+    color: white;
+    height: 800px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    /* background-color: rgba(128, 128, 128, 0.319); */
+}
+
+.Navbar .liList .li{
+    /* border: 1px solid; */
+    height: 50px;
+    color:  gray;
+    display: flex;
+    padding-left: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+   
+}
+.Navbar .liList .active{
+    border-left: 2px solid;
+    color:  white;
+    box-sizing: border-box;
+    background-color: rgba(128, 128, 128, 0.523);
+}
+
+

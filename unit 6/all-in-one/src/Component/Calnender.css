@@ -1,0 +1,29 @@
+.calender{
+    /* border: 1px solid; */
+    margin: auto;
+    margin-top: 100px;
+    width: 700px;
+    display: grid;
+    grid-template-columns: repeat(7 ,1fr);
+    gap: 20px;
+    padding: 20px;
+}
+.day{
+    border: 1px solid;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 50px;
+    font-weight: bolder;
+}
+.day:hover{
+    background-color: rgba(0, 128, 128, 0.208);
+}
+.demo{
+    background-color: rgba(105, 110, 191, 0.286);
+}
+.hover{
+    background-color: rgba(61, 68, 201, 0.527);
+}

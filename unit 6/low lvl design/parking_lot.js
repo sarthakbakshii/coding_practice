@@ -9,6 +9,9 @@ Write code making LLD decisions.
 
 */
 
+
+
+
 const lots  = new Array(10).fill(-1).map( (a,i) => a = {id : i , available : true })
 
 class Lots{
@@ -16,7 +19,7 @@ class Lots{
     constructor(lots){
         this.lots = lots
     }
-    
+
     get allLots(){
          console.log("  to book lot : booklot")
          console.log("  to see your lot : myCAr")
